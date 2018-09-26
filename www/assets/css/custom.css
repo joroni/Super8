@@ -1,0 +1,191 @@
+.hidden {
+  display: none !important;
+}
+
+
+.center {
+  text-align: center !important;
+}
+
+
+#login{
+  background-color: #fff;
+}
+
+
+
+.navbar-toggler {
+  position: absolute;
+  right: 20px;
+}
+
+.nav-link.navbar-toggler {
+  right: unset;
+}
+
+body.welcome .navbar .navbar-brand {
+  position: absolute;
+  color: inherit;
+  height: 50px;
+  left: 20px;
+  top: 10px;
+  text-align: left;
+  font-size: 2rem !important;
+  line-height: 30px;
+  padding: 0.625rem 0;
+  font-weight: 300;
+  margin-left: 1rem;
+}
+
+
+.full-width {
+  width: 100vw;
+  margin-left: -15px !important;
+  left: 0;
+}
+
+footer {
+  padding: 0.9375rem 0;
+  text-align: center;
+  display: flex;
+  position: fixed !important;
+  height: 60px;
+  bottom: 0;
+  overflow: hidden;
+  left: 0;
+  width: 100%;
+  background: #fff !important;
+  z-index: 20000;
+}
+
+.main-panel > .navbar {
+  margin-bottom: 0;
+  position: fixed;
+  border-bottom: 1px solid #ddd;
+  height: 70px;
+  background: #fff !important;
+  z-index: 20000;
+}
+
+body.welcome .main-panel > .content {
+  margin-top: 70px;
+  padding: 0 15px;
+  min-height: calc(100vh - 123px);
+}
+
+
+.m-thumb {
+  display: block;
+  width: auto;
+  height: 50px;
+  margin: 10px;
+  border-radius: 50%;
+}
+
+.m-text {
+  font-size: 1.2em;
+}
+
+.link-icon {
+  color: #ddd;
+  width: 100%;
+  position: relative;
+  bottom: -35px;
+}
+.green {
+  color:green;
+}
+
+.orange {
+  color:orange;
+}
+
+.red {
+  color: red;
+}
+
+
+.table .h3,.table h3 {
+  font-size: 20px;
+}
+
+.sidebar::before, .off-canvas-sidebar nav .navbar-collapse::before {
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: #dedede;
+  display: block;
+  content: "";
+  z-index: 1;
+}
+
+.sidebar .logo {
+  padding: 10px;
+  margin: 0;
+  background: #fff;
+  display: block;
+  position: relative;
+  z-index: 4;
+}
+/*
+#customer-list{
+  width: 100%;
+}
+
+ul.list {
+  margin-top: 0;
+  margin-bottom: 10px;
+  margin-left: -40px;
+}
+.list li {
+  border-bottom: 1px solid #ccc;
+  display: table;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.li-img img {
+  display: block;
+  width: auto;
+  height: 50px;
+  margin: 10px;
+  border-radius: 50%;
+}
+.inner {
+  display: table-row;
+  overflow: hidden;
+}
+.li-img {
+  display: table-cell;
+  vertical-align: middle;
+  width: 30%;
+  padding-right: 1em;
+}
+
+.li-text {
+  display: table-cell;
+  vertical-align: middle;
+  width: 70%;
+}
+.li-head {
+  margin: 0;
+}
+.li-sub {
+  margin: 0;
+}
+
+@media all and (min-width: 45em) {
+  .list li {
+    float: left;
+    width: 50%;
+  }
+}
+
+@media all and (min-width: 75em) {
+  .list li {
+    width: 33.33333%;
+  }
+}
+*/
