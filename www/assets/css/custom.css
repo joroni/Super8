@@ -229,6 +229,10 @@ body.welcome .main-panel > .content {
   display: table-row;
 }
 
+body.menu .row {
+  margin-top:20px;
+}
+
 .table_header {
   display: table-cell;
   border-bottom: #ccc 1px solid;

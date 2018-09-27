@@ -103,7 +103,35 @@ body.welcome .main-panel > .content {
 .red {
   color: red !important;
 }
+.grade-gold {
+  background: linear-gradient(60deg, #ffa726, #fb8c00);
+}
 
+.grade-green{
+  background: linear-gradient(60deg, #66bb6a, #43a047);
+}
+
+.grede-red {
+  background: linear-gradient(60deg, #ef5350, #e53935);
+}
+
+.grade-blue {
+  background: linear-gradient(60deg, #26c6da, #00acc1);
+}
+
+.col-md-6, .col-sm-6{
+  width:50%;
+}
+
+.menu .btn .material-icons, .menu .btn:not(.btn-just-icon):not(.btn-fab) .fa {
+  position: relative;
+  display: inline-block;
+  top: 0;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 2.2rem;
+  vertical-align: middle;
+}
 
 .table .h3,.table h3 {
   font-size: 20px;
@@ -175,6 +203,14 @@ body.welcome .main-panel > .content {
   width: 100px;
 }
 
+
+.btn.btn-menu {
+  padding: 2.25rem;
+  font-size: 0.875rem;
+  line-height: 1.33333;
+  border-radius: 0.2rem;
+}
+
 .table {
   display: table;
   text-align: center;
@@ -191,6 +227,10 @@ body.welcome .main-panel > .content {
 
 .theader {
   display: table-row;
+}
+
+body.menu .row {
+  margin-top:20px;
 }
 
 .table_header {
