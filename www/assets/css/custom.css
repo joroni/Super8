@@ -116,7 +116,7 @@ color:#ccc;
   background: linear-gradient(60deg, #66bb6a, #43a047);
 }
 
-.grede-red {
+.grade-red {
   background: linear-gradient(60deg, #ef5350, #e53935);
 }
 
@@ -124,10 +124,19 @@ color:#ccc;
   background: linear-gradient(60deg, #26c6da, #00acc1);
 }
 
+
+.search-box{
+  width:80%;
+}
+
 .col-md-6, .col-sm-6{
   width:50%;
 }
 
+
+.navbar-prev, .navbar-prev>i {
+  color: #555;
+}
 .menu .btn .material-icons, .menu .btn:not(.btn-just-icon):not(.btn-fab) .fa {
   position: relative;
   display: inline-block;
@@ -210,8 +219,9 @@ color:#ccc;
 
 
 .btn.btn-menu {
-  padding: 2.25rem;
+  padding: 1.25rem;
   font-size: 0.875rem;
+  width: 100%;
   line-height: 1.33333;
   border-radius: 0.2rem;
 }
@@ -506,16 +516,14 @@ ul.list {
 }
 */
 
-
-.slider {
+.slideEl {
+	left: -300px;
+}
+.slideleft {
 	overflow-y: hidden;
   left: 0; /* approximate max height */
-
-	transition-property: all;
-	transition-duration: .5s;
-	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+  transition-duration: 4s;
+  transition-delay: 2s;
+  transition: width 2s;
 }
 
-.sliderStop {
-	left: -50px;
-}
