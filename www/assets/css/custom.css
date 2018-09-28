@@ -233,6 +233,23 @@ body.menu .row {
   margin-top:20px;
 }
 
+body.welcome .m-thumb {
+    display: block;
+    width: auto;
+    height: 50px;
+    margin: 10px auto;
+    border-radius: 50%;
+}
+
+
+body.welcome .table_row > .table_small > .table_cell:nth-child(odd) {
+  display: table-cell;
+  width: 30%;
+  background: #fff;
+}
+
+
+
 .table_header {
   display: table-cell;
   border-bottom: #ccc 1px solid;
@@ -252,6 +269,30 @@ body.menu .row {
 .table_header:last-child {
   border-right: #ccc 1px solid;
   border-top-right-radius: 5px;
+}
+.arrow-link {
+  text-align: right;
+  
+}
+
+body.welcome .table_row > .table_small > .table_cell {
+  border: none;
+}
+
+
+body.welcome .table_small:last-child {
+  border-bottom: 1px solid #ddd;
+}
+
+.arrow-link {
+  text-align: right;
+  font-size: 0.8em;
+  color: #ccc;
+}
+
+arrow-link {
+  text-align: right;
+  font-size: 0.8em;
 }
 
 .table_small {
