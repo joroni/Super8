@@ -39,10 +39,10 @@
                         <p>Dashboard</p>
                      </a>
                   </li>
-                  <li class="nav-item   ">
-                     <a class="nav-link navbar-toggler" href="#0">
-                        <i class="material-icons">dashboard</i>
-                        <p>Dashboard</p>
+                  <li class="nav-item">
+                     <a class="nav-link navbar-toggler" id="flushAll" href="#">
+                        <i class="material-icons">Flush Local DB</i>
+                        <p>Flush Local DB</p>
                      </a>
                   </li>
                   <li class="nav-item   ">
@@ -104,7 +104,7 @@
                            <button class="minus-btn" type="button" name="button">
                            <img src="cart/images/minus.svg" alt="">
                            </button>
-                           <input type="text" name="name" value="1">
+                           <input type="text" name="name" id="Qnty1" class="qntty" value="1">
                            <button class="plus-btn" type="button" name="button">
                            <img src="cart/images/plus.svg" alt="">
                            </button>
@@ -115,55 +115,26 @@
                         <!--<a href="#" class="btn btn-info">Details</a>-->
                      </div>
                      <div class="col-md-6 text-center">
-                        <img src="cart/images/img_2.png" width="150px" height="150px">
+                        <img src="cart/images/chickenwings.jpg" width="150px" height="150px">
                         <br>
-                        product 2 - <br><strong>$20</strong>
+                        Chicken Wings <br><strong>$20</strong>
                         <br>
                         <div class="quantity">
-                           <button class="plus-btn" type="button" name="button">
-                           <img src="cart/images/plus.svg" alt="">
-                           </button>
-                           <input type="text" name="name" value="1">
                            <button class="minus-btn" type="button" name="button">
                            <img src="cart/images/minus.svg" alt="">
                            </button>
+                           <input type="text" name="name" id="Qnty2" class="qntty" value="3">
+                           <button class="plus-btn" type="button" name="button">
+                           <img src="cart/images/plus.svg" alt="">
+                           </button>
                         </div>
                         <br>
-                        <button  id="Prod2" class="btn my-cart-btn" data-id="2" data-name="product 2" data-summary="summary 2" data-price="20"
-                           data-quantity="1" data-image="cart/images/img_2.png">Add to Cart</button>
-                     </div>
-                     <div class="col-md-6 text-center">
-                        <img src="cart/images/img_3.png" width="150px" height="150px">
+                        <button id="Prod1" class="btn my-cart-btn" data-id="1" data-name="Coke" data-summary="Coke 1.75ml" data-price="75"
+                           data-quantity="1" data-image="cart/images/coke.jpg">Add to Cart</button>
+                        <!--<a href="#" class="btn btn-info">Details</a>-->
+                    </div>
                         <br>
-                        product 3 - <br><strong>$30</strong>
-                        <br>
-                        <button  id="Prod3" class="btn my-cart-btn" data-id="3" data-name="product 3" data-summary="summary 3" data-price="30"
-                           data-quantity="1" data-image="cart/images/img_3.png">Add to Cart</button>
-                     </div>
-                     <div class="col-md-6 text-center">
-                        <img src="cart/images/img_4.png" width="150px" height="150px">
-                        <br>
-                        product 4 - <br><strong>$40</strong>
-                        <br>
-                        <button  id="Prod4" class="btn my-cart-btn" data-id="4" data-name="product 4" data-summary="summary 4" data-price="40"
-                           data-quantity="1" data-image="cart/images/img_4.png">Add to Cart</button>
-                     </div>
-                     <div class="col-md-6 text-center">
-                        <img src="cart/images/img_5.png" width="150px" height="150px">
-                        <br>
-                        product 5 - <br><strong>$50</strong>
-                        <br>
-                        <button  id="Prod5" class="btn my-cart-btn" data-id="5" data-name="product 5" data-summary="summary 5" data-price="50"
-                           data-quantity="1" data-image="cart/images/img_5.png">Add to Cart</button>
-                     </div>
-                     <div class="col-md-6 text-center">
-                        <img src="cart/images/haagen-dazs.jpg" width="150px" height="150px">
-                        <br>
-                        product 5 - <br><strong>$50</strong>
-                        <br>
-                        <button  id="Prod6" class="btn my-cart-btn" data-id="6" data-name="product 6" data-summary="summary 6" data-price="50"
-                           data-quantity="1" data-image="cart/images/haagen-dazs.jpg">Add to Cart</button>
-                     </div>
+                       
                   </div>
                </div>
             </div>

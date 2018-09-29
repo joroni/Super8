@@ -123,6 +123,16 @@ color:#ccc;
   background: linear-gradient(60deg, #26c6da, #00acc1);
 }
 
+.grade-pink{
+  
+  background: linear-gradient(60deg, #FF4081, #F50057);
+}
+
+.grade-purple{
+  
+  background: linear-gradient(60deg, #6A1B9A, #7B1FA2);
+  
+}
 
 .search-box{
   width:80%;

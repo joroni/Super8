@@ -365,14 +365,7 @@
     var $input = $this.closest('div').find('input');
     var value = parseInt($input.val());
     var buttId = $this.closest('div').find('input');
-  
-  
-    $("inbox").click(function(){
-      
-    
-
-    }) 
-
+ 
     if (value > 1) {
       value = value - 1;
     } else {
@@ -388,6 +381,12 @@
     var $this = $(this);
     var $input = $this.closest('div').find('input');
     var value = parseInt($input.val());
+    var prodQty = $this.val();
+  
+    $("#Qnty1").change(function(){
+      console.log(prodQty);
+
+    }) 
 
     if (value < 100) {
       value = value + 1;
