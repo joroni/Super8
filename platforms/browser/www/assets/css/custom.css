@@ -549,8 +549,17 @@ ul.list {
     overflow: visible;
     outline: 0;
 }
+body.catalog button {
+  width: auto !important;
+  padding-top: 8px;
+  padding-bottom: 10px;
+}
 
-.my-cart-btn {
-  background: #7EC855;
+.minus-btn, .plus-btn{
+  padding-top: 2px !important;
+  padding-bottom: 10px  !important;
+}
+body.catalog .my-cart-btn {
+  background-color: #7EC855 !important;
   color: #fff;
 }
