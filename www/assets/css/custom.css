@@ -30,7 +30,6 @@ body.welcome .navbar .navbar-brand {
   left: 20px;
   top: 10px;
   text-align: left;
-  font-size: 2rem !important;
   line-height: 30px;
   padding: 0.625rem 0;
   font-weight: 300;
@@ -528,3 +527,30 @@ ul.list {
   transition: width 2s;
 }
 
+
+
+  .badge-notify{
+    background:red;
+    position:relative;
+    top: -20px;
+    right: 10px;
+  }
+
+
+  .modal {
+    position: fixed;
+    /* top: 70px; */
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /* max-height: 500px; */
+    z-index: 20000;
+    display: none;
+    overflow: visible;
+    outline: 0;
+}
+
+.my-cart-btn {
+  background: #7EC855;
+  color: #fff;
+}
