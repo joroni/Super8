@@ -33,22 +33,22 @@
             </div>
             <div class="sidebar-wrapper">
                <ul class="nav">
-                  <li class="nav-item active  ">
-                     <a class="nav-link navbar-toggler" href="welcome.html">
-                        <i class="material-icons">dashboard</i>
-                        <p>Dashboard</p>
+                  <li class="nav-item">
+                     <a class="nav-link navbar-toggler" href="menu.html">
+                        <i class="material-icons">home</i>
+                        <p>Home</p>
                      </a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link navbar-toggler" id="flushAll" href="#">
-                        <i class="material-icons">Flush Local DB</i>
-                        <p>Flush Local DB</p>
+                     <a class="nav-link navbar-toggler" id="flushCart" href="customers.html">
+                        <i class="material-icons">autorenew</i>
+                        <p>Clear Cart</p>
                      </a>
                   </li>
                   <li class="nav-item   ">
                      <a class="nav-link navbar-toggler" href="#0">
-                        <i class="material-icons">dashboard</i>
-                        <p>Dashboard</p>
+                        <i class="material-icons">people_outline</i>
+                        <p>Customers</p>
                      </a>
                   </li>
                   <li class="nav-item   ">
@@ -95,44 +95,50 @@
             <div class="content">
                <div class="container-fluid">
                   <div class="row">
-                     <div class="col-md-6 text-center">
+                     <div class="col-md-6 text-center prodBox">
                         <img src="cart/images/coke.jpg" width="150px" height="150px">
                         <br>
                         Coke 1.75ml <br><strong>&#8369;75</strong>
                         <br>
                         <div class="quantity">
-                           <button class="minus-btn" type="button" name="button">
+                              <button class="minus-btn " type="button" name="button" data-id="1" data-name="Coke 1.75ml" data-summary="Coke 1.75ml" data-price="-75"
+                              data-quantity="-1" data-image="cart/images/coke.jpg" type="button" name="button"  value="-1">
                            <img src="cart/images/minus.svg" alt="">
                            </button>
-                           <input type="text" name="name" id="Qnty1" class="qntty" value="1">
-                           <button class="plus-btn" type="button" name="button">
+                           <input type="number" name="name" id="Qnty1" class="qntty" value="0">
+                           <button class="plus-btn my-cart-btn" type="button" name="button" data-id="1" data-name="Coke 1.75ml" data-summary="Coke 1.75ml" data-price="75"
+                           data-quantity="1" data-image="cart/images/coke.jpg">
                            <img src="cart/images/plus.svg" alt="">
                            </button>
                         </div>
                         <br>
-                        <button id="Prod1" class="btn my-cart-btn" data-id="1" data-name="Coke 1.75ml" data-summary="Coke 1.75ml" data-price="75"
+                        <button id="Prod1" class="btn my-cart-btn add-cart" data-id="1" data-name="Coke 1.75ml" data-summary="Coke 1.75ml" data-price="75"
                            data-quantity="1" data-image="cart/images/coke.jpg">Add to Cart</button>
                         <!--<a href="#" class="btn btn-info">Details</a>-->
                      </div>
-                     <div class="col-md-6 text-center">
+                     <div class="col-md-6 text-center prodBox">
                         <img src="cart/images/chickenwings.jpg" width="150px" height="150px">
                         <br>
-                        Chicken Wings <br><strong>$20</strong>
+                        Chicken Wings <br><strong>&#8369;20</strong>
+                       
                         <br>
                         <div class="quantity">
-                           <button class="minus-btn" type="button" name="button">
+                              <button class="minus-btn " type="button" name="button" data-id="2" data-name="Chicken Wings" data-summary="Chicken Wings" data-price="-20"
+                              data-quantity="-1" data-image="cart/images/chickenwings.jpg" type="button" name="button"  value="-1">
                            <img src="cart/images/minus.svg" alt="">
                            </button>
-                           <input type="text" name="name" id="Qnty2" class="qntty" value="3">
-                           <button class="plus-btn" type="button" name="button">
+                           <input type="number" name="name" id="Qnty2" class="qntty" value="0">
+                           <button class="plus-btn  my-cart-btn" type="button" name="button" data-id="2" data-name="Chicken Wings" data-summary="Chicken Wings" data-price="20"
+                              data-quantity="1" data-image="cart/images/chickenwings.jpg" type="button" name="button"  value="1">
                            <img src="cart/images/plus.svg" alt="">
                            </button>
                         </div>
                         <br>
-                        <button id="Prod1" class="btn my-cart-btn" data-id="1" data-name="Coke" data-summary="Coke 1.75ml" data-price="75"
-                           data-quantity="1" data-image="cart/images/coke.jpg">Add to Cart</button>
+                        <button id="Prod2" class="btn my-cart- add-cart"  data-id="2" data-name="Chicken Wings" data-summary="Chicken Wings" data-price="20"
+                        data-quantity="1" data-image="cart/images/chickenwings.jpg" >Add to Cart</button>
                         <!--<a href="#" class="btn btn-info">Details</a>-->
-                    </div>
+                     </div>
+                    
                         <br>
                        
                   </div>
@@ -198,6 +204,11 @@
              },
              clickOnAddToCart: function ($addTocart) {
                goToCartIcon($addTocart);
+               console.log(this);
+             },
+             clickOnLessToCart: function ($lessTocart) {
+               goToCartIcon($lessTocart);
+               console.log(this);
              },
              getDiscountPrice: function (products) {
                var total = 0;
@@ -208,6 +219,11 @@
              }
            });
          /************************* addin catalog script *************************/
+         $('#flushCart').click(function(){
+           localStorage.removeItem("products");
+           $(".badge.my-cart-badge").html("0");
+           $(".qntty").val(0);
+         })
          
          
          });

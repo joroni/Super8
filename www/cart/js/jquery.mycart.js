@@ -179,6 +179,7 @@
         '<div class="modal-footer">' +
         '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>' +
         '<button type="button" class="btn btn-primary" id="' + idCheckoutCart + '">Checkout</button>' +
+       
         '</div>' +
         '</div>' +
         '</div>' +
@@ -197,10 +198,10 @@
           '<tr title="' + this.summary + '" data-id="' + this.id + '" data-price="' + this.price + '">' +
           //'<td class="text-center" style="width: 30px;"><img width="30px" height="30px" src="cart/' + this.image + '"/></td>' +
           '<td>' + this.name + '</td>' +
-          '<td title="Unit Price">$' + this.price + '</td>' +
-          '<td title="Quantity"><input type="number" min="1" style="width: 70px;" class="' + classProductQuantity + '" value="' + this.quantity + '"/></td>' +
-          '<td title="Total" class="' + classProductTotal + '">$' + total + '</td>' +
-          '<td title="Remove from Cart" class="text-center" style="width: 30px;"><a href="javascript:void(0);" class="btn btn-xs btn-danger ' + classProductRemove + '">X</a></td>' +
+          '<td title="Unit Price">₱' + this.price + '</td>' +
+          '<td title="Quantity" style=" padding:10px 0 10px 0 !important;"><input type="number" min="1" style="width: 40px; text-align:center; border:1px solid #ddd;" class="' + classProductQuantity + '" value="' + this.quantity + '"/></td>' +
+          '<td title="Total" class="' + classProductTotal + '">₱' + total + '</td>' +
+          '<td title="Remove from Cart" class="text-center" style="width: 30px;"><a href="javascript:void(0);" style="padding-left:15px; padding-right:15px;" class="btn btn-xs btn-danger ' + classProductRemove + '">X</a></td>' +
           '</tr>'
         );
       });
@@ -208,10 +209,10 @@
       $cartTable.append(products.length ?
         '<tr>' +
         //  '<td></td>' +
-        '<td><strong>Total</strong></td>' +
+        '<td style="text-align: left;"><strong>Total</strong></td>' +
         '<td></td>' +
         '<td></td>' +
-        '<td><strong id="' + idGrandTotal + '">$</strong></td>' +
+        '<td><strong id="' + idGrandTotal + '">₱</strong></td>' +
         '<td></td>' +
         '</tr>' :
         '<div class="alert alert-danger" role="alert" id="' + idEmptyCartMessage + '">Your cart is empty</div>'
@@ -221,11 +222,11 @@
       if (discountPrice !== null) {
         $cartTable.append(
           '<tr style="color: red">' +
+          '<td colspan="2" style="text-align: left;">' +
+          '<strong>Total (w/ discount)</strong></td>' +
           '<td></td>' +
-          '<td><strong>Total (w/ discount)</strong></td>' +
+          '<td><strong id="' + idDiscountPrice + '">₱</strong></td>' +
           '<td></td>' +
-          '<td></td>' +
-          '<td><strong id="' + idDiscountPrice + '">$</strong></td>' +
           '<td></td>' +
           '</tr>'
         );
@@ -249,10 +250,10 @@
       $.each(products, function () {
         total += this.quantity * this.price;
       });
-      $("#" + idGrandTotal).text("$" + total);
+      $("#" + idGrandTotal).text("₱" + total);
     }
     var showDiscountPrice = function (products) {
-      $("#" + idDiscountPrice).text("$" + options.getDiscountPrice(products));
+      $("#" + idDiscountPrice).text("₱" + options.getDiscountPrice(products));
     }
 
     /*
@@ -277,7 +278,7 @@
       var id = $(this).closest("tr").data("id");
       var quantity = $(this).val();
 
-      $(this).parent("td").next("." + classProductTotal).text("$" + price * quantity);
+      $(this).parent("td").next("." + classProductTotal).text("₱" + price * quantity);
       ProductManager.updatePoduct(id, quantity);
 
       $cartBadge.text(ProductManager.getTotalQuantityOfProduct());
@@ -356,9 +357,11 @@
 
 
 
-/******************************add in */
+/******************************add in *********************************/
+/*checkout */
 
 
+/*stepper */
   $('.minus-btn').on('click', function (e) {
     e.preventDefault();
     var $this = $(this);

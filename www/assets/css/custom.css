@@ -570,6 +570,26 @@ body.catalog button {
   padding-bottom: 10px  !important;
 }
 body.catalog .my-cart-btn {
-  background-color: #7EC855 !important;
-  color: #fff;
+  background-color: #f0f0f0 !important;
+  color: #333;
+}
+
+
+.my-cart-icon {
+  color: #7ec855;
+}
+
+
+.add-cart {
+  display: none;
+}
+
+
+.prodBox {
+  border: 1px solid #ccc;
+  overflow: hidden;
+}
+
+.prodBox > img {
+  margin: 10px 10px 10px -10px;
 }
