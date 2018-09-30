@@ -16,17 +16,16 @@
     <link rel="stylesheet" href="assets/fonts/Fontawesome/font-awesome.min.css">
     <!-- CSS Files -->
     <link href="assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
+    <link href="assets/css/main.css" rel="stylesheet" />
     <link href="assets/css/custom.css" rel="stylesheet" />
-
     <link href="assets/demo/demo.css" rel="stylesheet" />
-
     <link rel="stylesheet" href="assets/css/jquery.typeahead.css">
 
 
 
 </head>
 
-<body>
+<body class="customers">
     <div class="wrapper ">
         <div class="sidebar" data-color="azure" data-background-color="white" style="background:#dedede;">
 
@@ -37,22 +36,22 @@
             </div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
-                    <li class="nav-item active  ">
-                        <a class="nav-link navbar-toggler" href="dashboard.html">
-                            <i class="material-icons">dashboard</i>
-                            <p>Dashboard</p>
+                    <li class="nav-item">
+                        <a class="nav-link navbar-toggler" href="menu.html">
+                            <i class="material-icons">home</i>
+                            <p>Home</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link navbar-toggler" id="flushCart" href="#0">
+                            <i class="material-icons">autorenew</i>
+                            <p>Clear Cart</p>
                         </a>
                     </li>
                     <li class="nav-item   ">
-                        <a class="nav-link navbar-toggler" href="#0">
-                            <i class="material-icons">dashboard</i>
-                            <p>Dashboard</p>
-                        </a>
-                    </li>
-                    <li class="nav-item   ">
-                        <a class="nav-link navbar-toggler" href="#0">
-                            <i class="material-icons">dashboard</i>
-                            <p>Dashboard</p>
+                        <a class="nav-link navbar-toggler" href="customers.html">
+                            <i class="material-icons">people_outline</i>
+                            <p>Customers</p>
                         </a>
                     </li>
                     <li class="nav-item   ">
@@ -129,28 +128,31 @@
                 </div>
             </nav>
             <!-- End Navbar -->
-            <div class="content menu">
-                <div class="container-fluid">
-                    <div class="js-result-container"></div>
-
-                    <div class="row">
-                        <form>
-                            <div class="typeahead__container">
-                                <div class="typeahead__field">
-                                    <div class="typeahead__query">
-                                        <input class="js-typeahead" name="q" type="search" autofocus autocomplete="off">
-                                    </div>
-                                    <div class="typeahead__button">
-                                        <button type="submit">
-                                            <span class="typeahead__search-icon"></span>
-                                        </button>
-                                    </div>
+            <div class="sub-header">
+                <div class="row">
+                    <form class="search-form">
+                        <div class="typeahead__container">
+                            <div class="typeahead__field">
+                                <div class="typeahead__query">
+                                    <input class="js-typeahead" name="q" type="search" autofocus autocomplete="off">
+                                </div>
+                                <div class="typeahead__button">
+                                    <button type="submit">
+                                        <span class="typeahead__search-icon"></span>
+                                    </button>
                                 </div>
                             </div>
-                        </form>
-                    </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="content menu">
+                <div class="container-fluid full-width">
+                    <ul id="Level_5__Pins" class="js-result-container list-group"></ul>
+
                 </div>
 
+              
             </div>
         </div>
         <footer class="footer hidden">
@@ -174,175 +176,24 @@
     </div>
     </div>
     <script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
+    <script src="assets/js/customers.js"></script>
     <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
     <script src="assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
     <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-    <!--script src="../dist/jquery.typeahead.min.js"></script-->
     <script src="assets/css/jquery.typeahead.js"></script>
     <script src="assets/js/core/appscript.js"></script>
+
     <script>
         $(document).ready(function () {
             var data = {
-                customers: ["Griffin Nolan",
-                    "Marin Blackwell",
-                    "Victoria Leonard",
+                customers: ["Victoria Leonard",
                     "Eric Huff",
-                    "Aurora Morales",
-                    "Athena Hurley",
-                    "Ellie Deleon",
-                    "Demarion Abbott",
-                    "Amaris Byrd",
-                    "Cedric Forbes",
-                    "Colt Burch",
-                    "Jaylene Gilmore",
-                    "Anaya Chandler",
-                    "Felipe Pennington",
-                    "Cameron Howell",
-                    "Kierra Benitez",
-                    "Valentin Wyatt",
-                    "Leslie Ray",
-                    "Iliana Molina",
-                    "Agustin Schaefer",
-                    "Levi French",
-                    "Roger Velez",
-                    "Neveah Moore",
-                    "Landon Khan",
-                    "Baylee Boyer",
-                    "Irene Fitzpatrick",
-                    "Laci Andrews",
-                    "Garrett Huber",
-                    "Catalina Keith",
-                    "Easton Blake",
-                    "Payton Montoya",
-                    "Amaya Odonnell",
-                    "Ean Hanna",
-                    "Brenna Marsh",
-                    "Tatum Dudley",
-                    "Mauricio Hammond",
-                    "Xavier Ali",
-                    "Larissa Payne",
-                    "Jordon Bryant",
-                    "Quintin Faulkner",
-                    "Jamir Madden",
-                    "Shirley Reeves",
-                    "Yaritza Dunn",
-                    "Leroy Rivas",
-                    "Demetrius Pineda",
-                    "Ahmad Henderson",
-                    "Stella Spears",
-                    "Ryder Blankenship",
                     "Anna Yan",
                     "Marc Blue",
                     "Liza Dela Cruz",
                     "Lorelei Collins",
-                    "Ahmed Clarke",
-                    "Harper Strickland",
-                    "Rishi Cardenas",
-                    "Damian Garner",
-                    "Maryjane Mcclain",
-                    "Ryan Hubbard",
-                    "Trey Meza",
-                    "Josephine Montes",
-                    "Averi Thomas",
-                    "Natalya Ford",
-                    "Laylah Reese",
-                    "Jack Mccarthy",
-                    "Jacey Mcbride",
-                    "Keshawn Moran",
-                    "Cheyanne Hayden",
-                    "Adison Hudson",
-                    "Markus George",
-                    "Skyla Casey",
-                    "Stanley Stout",
-                    "Gregory Mack",
-                    "Emerson Price",
-                    "Donna Harding",
-                    "Aditya Campbell",
-                    "Perla Kent",
-                    "Sam Vang",
-                    "Antonio Chapman",
-                    "Genesis Chavez",
-                    "Chaz Wiley",
-                    "Micheal Crane",
-                    "Braxton Donovan",
-                    "Billy Wallace",
-                    "Eddie Hoffman",
-                    "Enrique Christensen",
-                    "Anabelle Romero",
-                    "Anastasia Hurst",
-                    "Brielle Hardy",
-                    "Kadence Tyler",
-                    "Leticia Stephens",
-                    "Jasmine Alexander",
-                    "Raymond Mooney",
-                    "Amara Mora",
-                    "Chasity Chang",
-                    "Delaney Richards",
-                    "Mckenna Sherman",
-                    "Selena Johnson",
-                    "Jaquan Melton",
-                    "Adriana Oliver",
-                    "Alondra Daugherty",
-
-                ]/*,
-                capitals: ["Abu Dhabi", "Abuja", "Accra", "Adamstown", "Addis Ababa", "Algiers", "Alofi",
-                    "Amman", "Amsterdam",
-                    "Andorra la Vella", "Ankara", "Antananarivo", "Apia", "Ashgabat", "Asmara",
-                    "Astana", "Asunción", "Athens",
-                    "Avarua", "Baghdad", "Baku", "Bamako", "Bandar Seri Begawan", "Bangkok", "Bangui",
-                    "Banjul", "Basseterre",
-                    "Beijing", "Beirut", "Belgrade", "Belmopan", "Berlin", "Bern", "Bishkek", "Bissau",
-                    "Bogotá", "Brasília",
-                    "Bratislava", "Brazzaville", "Bridgetown", "Brussels", "Bucharest", "Budapest",
-                    "Buenos Aires", "Bujumbura",
-                    "Cairo", "Canberra", "Caracas", "Castries", "Cayenne", "Charlotte Amalie",
-                    "Chisinau", "Cockburn Town",
-                    "Conakry", "Copenhagen", "Dakar", "Damascus", "Dhaka", "Dili", "Djibouti", "Dodoma",
-                    "Doha", "Douglas",
-                    "Dublin", "Dushanbe", "Edinburgh of the Seven Seas", "El Aaiún",
-                    "Episkopi Cantonment", "Flying Fish Cove",
-                    "Freetown", "Funafuti", "Gaborone", "George Town", "Georgetown", "Georgetown",
-                    "Gibraltar", "King Edward Point",
-                    "Guatemala City", "Gustavia", "Hagåtña", "Hamilton", "Hanga Roa", "Hanoi", "Harare",
-                    "Hargeisa", "Havana",
-                    "Helsinki", "Honiara", "Islamabad", "Jakarta", "Jamestown", "Jerusalem", "Juba",
-                    "Kabul", "Kampala",
-                    "Kathmandu", "Khartoum", "Kiev", "Kigali", "Kingston", "Kingston", "Kingstown",
-                    "Kinshasa", "Kuala Lumpur",
-                    "Kuwait City", "Libreville", "Lilongwe", "Lima", "Lisbon", "Ljubljana", "Lomé",
-                    "London", "Luanda", "Lusaka",
-                    "Luxembourg", "Madrid", "Majuro", "Malabo", "Malé", "Managua", "Manama", "Manila",
-                    "Maputo", "Marigot",
-                    "Maseru", "Mata-Utu", "Mbabane Lobamba", "Melekeok Ngerulmud", "Mexico City",
-                    "Minsk", "Mogadishu", "Monaco",
-                    "Monrovia", "Montevideo", "Moroni", "Moscow", "Muscat", "Nairobi", "Nassau",
-                    "Naypyidaw", "N'Djamena",
-                    "New Delhi", "Niamey", "Nicosia", "Nicosia", "Nouakchott", "Nouméa", "Nukuʻalofa",
-                    "Nuuk", "Oranjestad",
-                    "Oslo", "Ottawa", "Ouagadougou", "Pago Pago", "Palikir", "Panama City", "Papeete",
-                    "Paramaribo", "Paris",
-                    "Philipsburg", "Phnom Penh", "Plymouth Brades Estate", "Podgorica Cetinje",
-                    "Port Louis", "Port Moresby",
-                    "Port Vila", "Port-au-Prince", "Port of Spain", "Porto-Novo Cotonou", "Prague",
-                    "Praia", "Cape Town",
-                    "Pristina", "Pyongyang", "Quito", "Rabat", "Reykjavík", "Riga", "Riyadh",
-                    "Road Town", "Rome", "Roseau",
-                    "Saipan", "San José", "San Juan", "San Marino", "San Salvador", "Sana'a",
-                    "Santiago", "Santo Domingo",
-                    "São Tomé", "Sarajevo", "Seoul", "Singapore", "Skopje", "Sofia",
-                    "Sri Jayawardenepura Kotte", "St. George's",
-                    "St. Helier", "St. John's", "St. Peter Port", "St. Pierre", "Stanley",
-                    "Stepanakert", "Stockholm", "Sucre",
-                    "Sukhumi", "Suva", "Taipei", "Tallinn", "Tarawa Atoll", "Tashkent", "Tbilisi",
-                    "Tegucigalpa", "Tehran",
-                    "Thimphu", "Tirana", "Tiraspol", "Tokyo", "Tórshavn", "Tripoli", "Tskhinvali",
-                    "Tunis", "Ulan Bator", "Vaduz",
-                    "Valletta", "The Valley", "Vatican City", "Victoria", "Vienna", "Vientiane",
-                    "Vilnius", "Warsaw",
-                    "Washington, D.C.", "Wellington", "West Island", "Willemstad", "Windhoek",
-                    "Yamoussoukro", "Yaoundé", "Yaren",
-                    "Yerevan", "Zagreb"
-                ]*/
+                ]
+                
             };
 
             var data =
@@ -380,17 +231,18 @@
                     },
                     hint: true,
                     dropdownFilter: "All",
-                    href: "https://en.wikipedia.org/?title={{display}}",
-                  //  template: "{{display}}, <small><em>{{group}}</em></small>",
-                  template: "{{display}}",
+                    href: "?name={{display}}",
+                    //  template: "{{display}}, <small><em>{{group}}</em></small>",
+                    template: "{{display}}",
                     emptyTemplate: "no result for {{query}}",
                     source: {
                         customer: {
                             data: data.customers
-                        }/*,
-                        capital: {
-                            data: data.capitals
-                        }*/
+                        }
+                        /*,
+                                                capital: {
+                                                    data: data.capitals
+                                                }*/
                     },
                     callback: {
                         onClickAfter: function (node, a, item, event) {

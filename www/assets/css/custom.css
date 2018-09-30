@@ -559,21 +559,34 @@ ul.list {
     overflow: visible;
     outline: 0;
 }
-body.catalog button {
-  width: auto !important;
-  padding-top: 8px;
-  padding-bottom: 10px;
-}
+
 
 .minus-btn, .plus-btn{
   padding-top: 2px !important;
   padding-bottom: 10px  !important;
-}
-body.catalog .my-cart-btn {
-  background-color: #f0f0f0 !important;
+  width: 30px;
+  height: 30px;
   color: #333;
+  background-color: #E1E8EE;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
 }
 
+
+body.customers  .main-panel > .content {
+  margin-top: 100px;
+  padding: 30px 15px;
+  min-height: calc(100vh - 123px);
+}
+table#my-cart-table {
+  margin-top: 0;
+}
+
+
+#customerList, .js-result-container{
+  border: 0px solid #ccc;
+}
 
 .my-cart-icon {
   color: #7ec855;
@@ -585,11 +598,98 @@ body.catalog .my-cart-btn {
 }
 
 
+.navbar-transparent {
+  background-color: transparent !important;
+  background: none !important;
+}
+
 .prodBox {
-  border: 1px solid #ccc;
+  border: 1px solid #eee;
   overflow: hidden;
 }
 
 .prodBox > img {
   margin: 10px 10px 10px -10px;
+}
+
+.sub-header {
+  position: absolute;
+  top: 70px;
+  width: 100vh;
+}
+
+form.search-form {
+  margin-bottom: 1.125rem;
+  margin-left: 15px;
+}
+
+.navbar .notification {
+    position: absolute;
+    top: 5px;
+    border: 1px solid #FFF;
+    right: -10px;
+    font-size: 9px;
+    background: #f44336;
+    color: #FFFFFF;
+    min-width: 20px;
+    padding: 0px 5px;
+    height: 20px;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 19px;
+    vertical-align: middle;
+    display: block;
+}
+
+.navbar .navbar-brand {
+  position: relative;
+  color: inherit;
+  height: 50px;
+  font-size: 1.125rem;
+  line-height: 30px;
+  padding: 0.25rem 0;
+  font-weight: 300;
+  margin-left: 1rem;
+}
+.media-body {
+  flex: 1;
+  padding-left: 20px;
+  width:40px;
+  height: auto;
+}
+
+body.customers .main-panel > .content {
+  margin-top: 100px;
+  padding: 30px 15px !important;
+  min-height: calc(100vh - 123px);
+}
+
+body.customer {
+  background: #fff;
+}
+body.customer .main-panel > .navbar {
+  margin-bottom: 0;
+  position: fixed;
+  border-bottom: 0px solid #ddd;
+  height: 70px;
+  background: none !important;
+  z-index: 20000;
+}
+
+.sidebar .sidebar-wrapper {
+  position: relative;
+  height: calc(100vh - 75px);
+  overflow: auto;
+  width: 260px;
+  z-index: 4;
+  background: #fff;
+  padding-bottom: 30px;
+}
+
+.media-right {
+  margin-top: 15px;
+}
+
+.media-right a {
+  color: #ddd !important;
 }

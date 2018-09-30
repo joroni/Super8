@@ -1,0 +1,54 @@
+{
+    "customers": [{
+        "Anna": [{
+            "name": "Anna Yan",
+            "photo": "anna.jpg",
+            "top": "10",
+            "left": "10",
+            "lastordered": "12",
+            "storelabel": "The Test",
+            "datalevel": "1",
+            "datacategory": "5"
+        }],
+        "Marc": [{
+            "name": "Marc Blue",
+            "photo": "marc.jpg",
+            "top": "20",
+            "left": "30",
+            "lastordered": "grass",
+            "storelabel": "The Test2",
+            "datalevel": "1",
+            "datacategory": "5"
+        }],
+        "Liza": [{
+            "name": "Liza Dela Cruz",
+            "photo": "liza.jpg",
+            "top": "51",
+            "left": "37",
+            "lastordered": "Sep. 20, 2018 15:00",
+            "storelabel": "The Test3",
+            "datalevel": "1",
+            "datacategory": "5"
+        }],
+        "Victoria": [{
+            "name": "Victoria Leonard",
+            "photo": "victoria.jpg",
+            "top": "15",
+            "left": "70",
+            "lastordered": "Sep. 20, 2018 15:00",
+            "storelabel": "The Test4",
+            "datalevel": "1",
+            "datacategory": "5"
+        }],
+        "Eric": [{
+            "name": "Eric Huff",
+            "photo": "eric.png",
+            "top": "15",
+            "left": "70",
+            "lastordered": "Sep. 20, 2018 15:00",
+            "storelabel": "The Test4",
+            "datalevel": "1",
+            "datacategory": "5"
+        }]
+    }]
+}
