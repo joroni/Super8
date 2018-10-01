@@ -15,25 +15,23 @@
     <link rel="stylesheet" type="text/css" href="assets/fonts/Roboto/Roboto.css" />
     <link rel="stylesheet" href="assets/fonts/Fontawesome/font-awesome.min.css">
     <!-- CSS Files -->
-
     <link href="assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
-
-
     <link href="localstorage/css/validationEngine.jquery.css" rel="stylesheet" media="screen">
     <link href="localstorage/css/jquery.dataTables.min.css" rel="stylesheet" media="screen">
-
     <link href="assets/css/custom.css" rel="stylesheet" />
     <style>
         label {
-    display:none;
-        }
-    </style>
+         display:none;
+         }
+         #seq {
+          display: none;   
+         }
+      </style>
 </head>
 
 <body class="customerlist">
     <div class="wrapper ">
         <div class="sidebar" data-color="azure" data-background-color="white" style="background:#dedede;">
-
             <div class="logo">
                 <a href="#" class="simple-text logo-normal">
                     <img src="assets/img/logo.png" width="100">
@@ -66,9 +64,9 @@
                         </a>
                     </li>
                     <li class="nav-item   ">
-                        <a class="nav-link navbar-toggler" href="#0">
-                            <i class="material-icons">dashboard</i>
-                            <p>Dashboard</p>
+                        <a class="nav-link navbar-toggler" href="customerlist.html">
+                            <i class="material-icons">people_outline</i>
+                            <p>Edit Customers</p>
                         </a>
                     </li>
                     <!-- your sidebar here -->
@@ -101,7 +99,6 @@
                             </div>
                         </form>
                         <ul class="navbar-nav">
-
                             <li class="nav-item dropdown">
                                 <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
@@ -136,9 +133,10 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="card">
+                               
                             <div class="card-body">
                                 <div id="list">
-                                    <table id="table" class="display"></table>
+                                    <table id="table" class="display table-responsive"></table>
                                     <div class="form-group">
                                         <button type="submit" class="submit btn btn-primary" id="add">Add</button>
                                     </div>
@@ -155,73 +153,82 @@
                                         </div>
                                         <div class="col-md-8">
                                             <div class="form-group">
-                                                <label for="useId" class="col-sm-2 control-label">User ID</label>
+                                                <label for="userID" class="col-sm-2 control-label">User ID</label>
                                                 <div class="col-sm-12">
                                                     <input type="text" class="form-control validate[required,custom[AID]]"
-                                                        id="useId" placeholder="User ID">
+                                                        id="userID" placeholder="User ID">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-8">
                                             <div class="form-group">
-                                                <label for="temperature" class="col-sm-2 control-label">Temperature(degC)</label>
+                                                <label for="fullname" class="col-sm-2 control-label" placeholder="Full Name">Full
+                                                    Name</label>
+                                                <div class="col-sm-12">
+                                                    <input type="text" class="form-control" placeholder="First Last Name"
+                                                        id="fullname">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <label for="phone" class="col-sm-2 control-label">Phone</label>
                                                 <div class="col-sm-12">
                                                     <input type="text" class="form-control validate[required,custom[number]]"
-                                                        id="temperature" placeholder="Temperature(degC)">
+                                                        id="phone" placeholder="09951212">
                                                 </div>
                                             </div>
                                         </div>
+                                        <!--   <div class="col-md-8">
+          <div class="form-group">
+                                 <span class="bmd-form-group is-filled">
+                                    <div class="radio">
+                                       <label>
+                                          <input type="noise"  name="optionsRadios" id="noise" value="noNoise" checked="">
+                                          <span class="bmd-radio">
+                                             <div class="ripple-container"></div>
+                                          </span>
+                                          Option one is this and that—be sure to include why it's great
+                                       </label>
+                                    </div>
+                                 </span>
+                                 <label for="noise" class="col-sm-12 control-label">Noise</label>
+                                 <div class="col-sm-12">
+                                    <div class="radio">
+                                       <label>
+                                       <input type="radio"  name="noise"
+                                          value="noisy">
+                                       Noisy
+                                       </label>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>-->
                                         <div class="col-md-8">
                                             <div class="form-group">
-                                                <label for="current" class="col-sm-2 control-label">Current(mA)</label>
+                                                <label for="address" class="col-sm-2 control-label">Address</label>
                                                 <div class="col-sm-12">
-                                                    <input type="text" class="form-control validate[required,custom[number]]"
-                                                        id="current" placeholder="Current(mA)">
+                                                    <textarea id="address" class="form-control" placeholder="Address" rows="3"></textarea>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-8">
                                             <div class="form-group">
-                                                <label for="noise" class="col-sm-2 control-label">Noise</label>
-                                                <div class="col-sm-12">
-                                                    <div class="radio">
-                                                        <label>
-                                                            <input type="radio" class="validate[required]" name="noise"
-                                                                value="noNoise">
-                                                            No noise
-                                                        </label>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <button class="btn btn-default" id="cancel">Cancel</button>
                                                     </div>
-                                                    <div class="radio">
-                                                        <label>
-                                                            <input type="radio" class="validate[required]" name="noise"
-                                                                value="noisy">
-                                                            Noisy
-                                                        </label>
+                                                    <div class="col-md-6">
+                                                        <button type="submit" class="submit btn btn-primary" id="save">Save</button>
                                                     </div>
                                                 </div>
                                             </div>
-
                                         </div>
-                                        <div class="col-md-8">
-                                                <div class="form-group">
-                                            <label for="note" class="col-sm-2 control-label">Note</label>
-                                            <div class="col-sm-12">
-                                                <textarea id="note" class="form-control" rows="3"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-offset-2 col-sm-8">
-                                                <button class="btn btn-default" id="cancel">Cancel</button>
-                                                <button type="submit" class="submit btn btn-primary" id="save">Save</button>
-                                            </div>
-                                        </div>
-                                        </div>
+                                    </div>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
-                <footer class="footer">
+                <footer class="footer hidden">
                     <div class="container-fluid">
                         <nav class="col-md-6">
                             <ul>
@@ -234,7 +241,6 @@
                         </nav>
                         <div class="copyright col-md-6">
                             &copy; Super8
-
                         </div>
                         <!-- your footer here -->
                     </div>
@@ -249,7 +255,7 @@
 <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
 <!--  Google Maps Plugin    -->
 <!-- Chartist JS 
-    <script src="assets/js/plugins/chartist.min.js"></script>-->
+      <script src="assets/js/plugins/chartist.min.js"></script>-->
 <!--  Notifications Plugin    -->
 <script src="assets/js/plugins/bootstrap-notify.js"></script>
 <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
@@ -258,11 +264,9 @@
 <script language="JavaScript" type="text/javascript" src="localstorage/js/jquery.validationEngine-2.6.2.js"></script>
 <script language="JavaScript" type="text/javascript" src="localstorage/js/jquery.validationEngine-en.js"></script>
 <script language="JavaScript" type="text/javascript" src="localstorage/js/jquery.dataTables-1.10.0.min.js"></script>
-
-
 <script>
     var editor; // use a global for the submit and return data rendering in the examples
-    var formId = "sample";
+    var formId = "customer";
     var oTable;
     $(document).ready(function () {
         $('#formID').hide();
@@ -288,7 +292,7 @@
         var seq = 0;
         var index = 0;
         var icons =
-            '<span class="glyphicon glyphicon-edit">&nbsp;</span><span class="glyphicon glyphicon-remove"></span>';
+            '<i class="material-icons btn-edit">edit</i><i class="material-icons btn-delete">delete</span>';
 
         while (skip < 2) {
             var key = formId + "_" + index;
@@ -300,11 +304,10 @@
             }
             var object = null;
             object = JSON.parse(json);
-            var note = object.note;
-            note = note.replace(/\n/g, "<br>");
-            dataSet[seq] = [index, icons, object.userId, object.timestamp, object.temperature, object.current, object.noise,
-                note
-            ];
+            var address = object.address;
+            address = address.replace(/\n/g, "<br>");
+            //  dataSet[seq] = [index, icons, object.userId, object.timestamp, object.fullname, object.phone, object.noise,
+            dataSet[seq] = [index, icons, object.userId, object.timestamp, object.fullname, object.phone, address];
             index = index + 1;
             seq = seq + 1;
         }
@@ -313,36 +316,48 @@
             "data": dataSet,
             "columns": [{
                     "title": "Seq",
+                    "class": "center",
+                    "targets": [ 1 ],
+                    "visible": false,
+                    "searchable": false
+                },
+                {
+                    "title": "Edit",
+                    "class": "center mid-grey"
+                },
+                {
+                    "title": "ID",
+                    "targets": [ 3 ],
+                    "visible": false,
+                    "searchable": true
+                },
+                {
+                    "title": "Time",
+                    "targets": [ 4 ],
+                    "visible": false,
+                    "searchable": false
+                },
+                {
+                    "title": "Name",
                     "class": "center"
                 },
                 {
-                    "title": "",
+                    "title": "Phone",
                     "class": "center"
                 },
+                /* {
+                     "title": "Noise"
+                 },*/
                 {
-                    "title": "User"
-                },
-                {
-                    "title": "Time"
-                },
-                {
-                    "title": "Temp.<br>(degC)",
-                    "class": "center"
-                },
-                {
-                    "title": "Current<br>(mA)",
-                    "class": "center"
-                },
-                {
-                    "title": "Noise"
-                },
-                {
-                    "title": "Note"
+                    "title": "Address",
+                    "targets": [ 7 ],
+                    "visible": false,
+                    "searchable": true
                 }
             ]
         });
 
-        $('#table tbody').on('click', '.glyphicon-remove', function () {
+        $('#table tbody').on('click', '.btn-delete', function () {
             var row = $(this).parents('tr');
             var seq = row.children()[0].innerHTML;
             if (window.confirm('Are you sure to delete? Seq=' + seq)) {
@@ -359,20 +374,22 @@
             $('#formID').show();
         });
 
-        $('#cancel').on('click', function () {
+        $('#cancel').click(function (e) {
+            e.preventDefault();
             location.reload(true);
         });
 
-        $('#table tbody').on('click', '.glyphicon-edit', function () {
+        $('#table tbody').on('click', '.btn-edit', function () {
+            $('#formID').show();
             $('#list').hide();
             var rows = $(this).parents('tr').children();
             $('#seq').text(rows[0].innerHTML);
-            $('#useId').val(rows[2].innerHTML);
-            $('#temperature').val(rows[4].innerHTML);
-            /* $('#current').val(rows[5].innerHTML);
-             $('input[name="noise"]').val([rows[6].innerHTML]);*/
-            $('#note').val((rows[7].innerHTML).replace(/(<br>)/g, "\n"));
-            $('#formID').show();
+            $('#userID').val(rows[2].innerHTML);
+            $('#fullname').val(rows[4].innerHTML);
+            $('#phone').val(rows[5].innerHTML);
+            // $('input[name="noise"]').val([rows[6].innerHTML]);
+            $('#address').val((rows[7].innerHTML).replace(/(<br>)/g, "\n"));
+   
         });
 
         return seq;
@@ -389,15 +406,18 @@
         }
         var key = formId + "_" + seq;
         var object = {
-            "userId": $("#useId").val(),
+            "userId": $("#userID").val(),
             "timestamp": timestamp,
-            "temperature": $("#temperature").val(),
-            "current": $("#current").val(),
+            "fullname": $("#fullname").val(),
+            "phone": $("#phone").val(),
             "noise": $('input[name="noise"]:checked').val(),
-            "note": $("#note").val()
+            // "noise": $('input[name="noise"]:checked').val(),
+            "address": $("#address").val()
         }
         localStorage.setItem(key, JSON.stringify(object));
-        alert("Saved!")
+        location.reload(true);
+       // alert("Saved!")
+      // demo.showNotification('top','center');
     }
 
     function restoreItems() {

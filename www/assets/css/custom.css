@@ -7,6 +7,9 @@
   text-align: center !important;
 }
 
+.left {
+  text-align: left !important;
+}
 
 #login{
   background-color: #fff;
@@ -36,6 +39,12 @@ body.welcome .navbar .navbar-brand {
   margin-left: 1rem;
 }
 
+
+body.customerlist .main-panel > .content {
+  margin-top: 30px;
+  padding: 30px 15px;
+  min-height: calc(100vh - 123px);
+}
 
 .full-width {
   width: 100vw;
@@ -106,6 +115,10 @@ body.welcome .main-panel > .content {
 .light-grey {
 color:#ccc;
 }
+
+.mid-grey {
+  color:#aaa;
+  }
 
 .grade-gold {
   background: linear-gradient(60deg, #ffa726, #fb8c00);
