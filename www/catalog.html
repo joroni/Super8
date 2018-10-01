@@ -105,8 +105,7 @@
               <br>
               <div class="quantity">
                 <button class="minus-btn " type="button" name="button" data-id="1" data-name="Coke 1.75ml" data-summary="Coke 1.75ml"
-                  data-price="-75" data-quantity="-1" data-image="cart/images/coke.jpg" type="button" name="button"
-                  value="-1">
+                  data-price="-75" data-quantity="-1" data-image="cart/images/coke.jpg" value="-1">
                   <img src="cart/images/minus.svg" alt="">
                 </button>
                 <input type="number" name="name" id="Qnty1" class="qntty" value="0">
@@ -150,20 +149,35 @@
           </div>
         </div>
       </div>
-      <footer class="footer hidden">
-        <div class="container-fluid">
-          <div class="col-md-12">
-            <ul>
-              <li>
-                <a href="#">
-                  All rights reserved. &copy; Super8
-                </a>
-              </li>
-            </ul>
+      <footer class="footer">
+          <div class="container-fluid">
+            <nav class="">
+                <div class="row">
+                    <div class="col-lg-8 col-md-10 ml-auto mr-auto">
+                      <div class="row">
+                        <div class="col-md-4">
+                         
+                        </div>
+                        <div class="col-md-4">
+                          <button class="btn btn-primary btn-block my-cart-icon">View My Cart<div class="ripple-container"></div></button>
+                          <!--<button class="btn btn-primary btn-blockv my-cart-btn" onclick="demo.showNotification('top','center')">View My Cart<div class="ripple-container"></div></button>-->
+                        </div>
+                        <div class="col-md-4">
+                         
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </nav>
+            <div class="copyright float-right hidden">
+              ©
+              <script>
+                document.write(new Date().getFullYear())
+              </script>2018, made with <i class="material-icons">favorite</i> by
+              <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
+            </div>
           </div>
-          <!-- your footer here -->
-        </div>
-      </footer>
+        </footer>
     </div>
   </div>
   <!--   Core JS Files   -->
