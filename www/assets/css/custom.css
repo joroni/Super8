@@ -717,7 +717,9 @@ body.customer .main-panel > .navbar {
 }
 
 
-
+div#list {
+  overflow-x: auto;
+}
 
 
 
@@ -746,6 +748,7 @@ body.customer .main-panel > .navbar {
   bottom: 0;
   left: 0;
   border-radius: 0;
+  border: none;
   box-shadow: none;
 }
 .modal-header {
@@ -758,6 +761,13 @@ body.customer .main-panel > .navbar {
   border: 0;
 }
 
+.modal-title {
+  margin-bottom: 0;
+  line-height: 1.5;
+  width: 100%;
+  text-align: center;
+  padding-top: 8px;
+}
 .modal-body {
   position: absolute;
   top: 50px;
@@ -774,14 +784,7 @@ body.customer .main-panel > .navbar {
   height: 60px;
   padding: 10px;
 }
-p {
-  font-size: 1.4em;
-  line-height: 1.5;
-  color: #9397a9;
-}
-p:last-child {
-  margin-bottom: 0;
-}
+
 ::-webkit-scrollbar {
   -webkit-appearance: none;
   width: 10px;
@@ -790,4 +793,15 @@ p:last-child {
 }
 ::-webkit-scrollbar-thumb {
   background: #b5c0cb;
+}
+
+
+.modal-footer .row {
+    display: contents;
+    flex-wrap: wrap;
+    left: 0;
+    margin-right: -15px;
+    margin-left: -15px;
+    width: 100%;
+
 }
