@@ -104,7 +104,7 @@
               Coke 1.75ml <br><strong>&#8369;75</strong>
               <br>
               <div class="quantity">
-                <button class="minus-btn " type="button" name="button" data-id="1" data-name="Coke 1.75ml" data-summary="Coke 1.75ml"
+                <button class="minus-btn " onclick="minus(1)" type="button" name="button" data-id="1" data-name="Coke 1.75ml" data-summary="Coke 1.75ml"
                   data-price="-75" data-quantity="-1" data-image="cart/images/coke.jpg" value="-1">
                   <img src="cart/images/minus.svg" alt="">
                 </button>
@@ -126,7 +126,7 @@
 
               <br>
               <div class="quantity">
-                <button class="minus-btn " type="button" name="button" data-id="2" data-name="Chicken Wings"
+                <button class="minus-btn " type="button" onclick="minus(2)" name="button" data-id="2" data-name="Chicken Wings"
                   data-summary="Chicken Wings" data-price="-20" data-quantity="-1" data-image="cart/images/chickenwings.jpg"
                   type="button" name="button" value="-1">
                   <img src="cart/images/minus.svg" alt="">
@@ -191,6 +191,16 @@
   <script src="assets/demo/demo.js"></script>
   <script type='text/javascript' src="cart/js/jquery.mycart.js"></script>
   <script type="text/javascript">
+
+             function minus(id){
+             alert(id);
+            // var trs = document.getElementById('qty_'+id+'').stepUp(5);
+             console.log('qty_'+id);
+             
+ 
+           }
+
+
     $(function () {
 
       var goToCartIcon = function ($addTocartBtn) {
@@ -234,6 +244,18 @@
           return total * 0.5;
         }
       });
+
+        $('.minus-btn').myCart({
+          classCartIcon: 'my-cart-icon',
+        classCartBadge: 'my-cart-badge',
+        affixCartIcon: true,
+        checkoutCart: function (products) {
+          this.quantity = this.quantity-1;
+        }
+         
+        });
+
+
       /************************* addin catalog script *************************/
       $('#flushCart').click(function () {
         var r = confirm("For Development only. This will flush your cart data. Are you sure?");

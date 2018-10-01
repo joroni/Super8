@@ -204,7 +204,7 @@
           //'<td class="text-center" style="width: 30px;"><img width="30px" height="30px" src="cart/' + this.image + '"/></td>' +
           '<td>' + this.name + '</td>' +
           '<td title="Unit Price">₱' + this.price + '</td>' +
-          '<td title="Quantity" style=" padding:10px 0 10px 0 !important;"><input type="number" min="1" style="width: 40px; text-align:center; border:1px solid #ddd;" class="' + classProductQuantity + '" value="' + this.quantity + '"/></td>' +
+          '<td  title="Quantity" style=" padding:10px 0 10px 0 !important;"><input id="qty_' + this.id + '" type="number" min="1" style="width: 40px; text-align:center; border:1px solid #ddd;" class="' + classProductQuantity + '" value="' + this.quantity + '"/></td>' +
           '<td title="Total" class="' + classProductTotal + '">₱' + total + '</td>' +
           '<td title="Remove from Cart" class="text-center" style="width: 30px;">' +
           '<button type="button" rel="tooltip" title="" class="btn btn-danger btn-link btn-sm ' + classProductRemove + ' " data-original-title="Remove">' +
