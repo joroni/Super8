@@ -326,7 +326,7 @@
     });
 
     $(document).on('keypress', "." + classProductQuantity, function (evt) {
-      if (evt.keyCode == 38 || evt.keyCode == 40) {
+      if (evt.keyCode == 38 || evt.keyCode == 40 ) {
         return;
       }
       evt.preventDefault();
@@ -391,6 +391,21 @@
     }
 
     $input.val(value);
+
+    /*********** */
+
+    var $this2 = $(this);
+    var $input2 = $this2.closest('#my-cart-table tr td').find('input');
+    var value2 = parseInt($input2.val());
+    var buttId2 = $this.closest('#my-cart-table tr td').find('input');
+
+    if (value2 > 1) {
+      value2 = value2 - 1;
+    } else {
+      value2 = 0;
+    }
+    $input2.val(value2);
+    console.log($input2.val(value2));
 
   });
 

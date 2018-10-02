@@ -100,6 +100,10 @@ body.welcome .main-panel > .content {
   position: relative;
   bottom: -35px;
 }
+
+.white {
+  color:#fff !important;
+}
 .green {
   color:green !important;
 }
@@ -113,11 +117,11 @@ body.welcome .main-panel > .content {
 }
 
 .light-grey {
-color:#ccc;
+color:#ccc !important;
 }
 
 .mid-grey {
-  color:#aaa;
+  color:#aaa !important;
   }
 
 .grade-gold {
@@ -158,15 +162,6 @@ color:#ccc;
 
 .navbar-prev, .navbar-prev>i {
   color: #555;
-}
-.menu .btn .material-icons, .menu .btn:not(.btn-just-icon):not(.btn-fab) .fa {
-  position: relative;
-  display: inline-block;
-  top: 0;
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  font-size: 2.2rem;
-  vertical-align: middle;
 }
 
 .table .h3,.table h3 {

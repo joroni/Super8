@@ -234,6 +234,29 @@
           return total * 0.5;
         }
       });
+
+
+       $('.my-less-cart-btn').myCart({
+        classCartIcon: 'my-cart-icon',
+        classCartBadge: 'my-cart-badge',
+        affixCartIcon: true,
+        checkoutCart: function (products) {
+          $.each(products, function () {
+            console.log(this);
+          });
+        },
+        clickOnLessToCart: function ($lessTocart) {
+          goToCartIcon($lessTocart);
+          console.log(this);
+        },
+        getDiscountPrice: function (products) {
+          var total = 0;
+          $.each(products, function () {
+            total += this.quantity * this.price;
+          });
+          return total * 0.5;
+        }
+      });
       /************************* addin catalog script *************************/
       $('#flushCart').click(function () {
         var r = confirm("For Development only. This will flush your cart data. Are you sure?");
