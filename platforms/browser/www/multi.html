@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>jPut</title>
+	
+	<!-- jPut core JavaScript -->
+	<script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
+    <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
+    <script src="assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
+    <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  
+	<!-- jPut core JavaScript -->
+	<script src="cart/js/jput.min.js"></script>
+	 
+	<script>	
+	$(document).ready(function(){
+		//loading json data initally 
+	$('#detailsShow').jPut({
+		ajax_url:'cart/js/jput.jquery.json',
+	//	ajax_url:JSON.parse(data),
+		name:'details',     //jPut name
+		dataName:'info'
+	});
+
+
+
+var obj = {x: 5, y: 6};
+var s = JSON.stringify(obj);
+localStorage.setItem("test",s);
+var r = localStorage.getItem("test");
+alert(r);
+
+	});
+	</script>	
+	</head>
+
+  <body>
+      
+	  <div class="page-header">
+        <h1>Appending multidimensional json.</h1>
+      </div>
+
+		<!--jPut HTML Template (it will he hidden)-->
+		<div jput="details">
+		    <h3>{{headername}}</h3>
+		    <ul>
+		        <li>Title: {{title}}</li>
+		        <li>Description: {{description}}</li>
+		        <li>Keywords: {{keywords}}</li>
+		        <li>Version: {{version}}</li>
+		        <li>Keywords :{{keywords}}</li>
+		        <li>1st Keyword : {{keywords.0}}</li>
+		        <li><a href="{{author.0.url}}">{{author.0.authorname||No Author}}</a></li>
+		    </ul>
+		</div>
+
+		<div id="detailsShow"></div>
+
+ </body>
+</html>

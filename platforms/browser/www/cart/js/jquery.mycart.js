@@ -152,6 +152,7 @@
     var $cartBadge = $("." + options.classCartBadge);
 
     var idCartModal = 'my-cart-modal';
+    var idCheckOutModal = 'my-checkout-modal';
     var idCartTable = 'my-cart-table';
     var classProductQuantity = 'my-product-quantity';
     var classProductTotal = 'my-product-total';
@@ -240,6 +241,7 @@
         );
       }
 
+     
       showGrandTotal(products);
       showDiscountPrice(products);
     }
@@ -306,21 +308,23 @@
     });
 
     $("#" + idCheckoutCart).click(function () {
+     // alert("checkout");
       var products = ProductManager.getAllProducts();
       if (!products.length) {
         $("#" + idEmptyCartMessage).fadeTo('fast', 0.5).fadeTo('fast', 1.0);
        /************* custom */
         console.log("Products", products);
-        alert(products);
+      //  alert(products);
         return;
       }
       updateCart();
       options.checkoutCart(ProductManager.getAllProducts());
-      ProductManager.clearProduct();
+     // ProductManager.clearProduct();
       $cartBadge.text(ProductManager.getTotalQuantityOfProduct());
       $("#" + idCartModal).modal("hide");
+      showCheckOutModal();
     /************* custom */
-      //alert("Hi");
+     
       localStorage.setItem("transactions",(JSON.stringify(products)));
       $(".qntty").val(0);
     });
@@ -334,6 +338,37 @@
   }
 
 
+
+  function showCheckOutModal(){
+   window.location.href="checkout.html";
+    /*$('body').append(
+      '<div class="modal fade" id="checkOutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">' +
+      '<div class="modal-dialog" role="document">' +
+      '<div class="modal-content">' +
+      '<div class="modal-header">' +
+      '<h4 class="modal-title" id="myModalLabel"><i class="material-icons glyphicon-shopping-cart">shopping_cart</i> My Cart</h4>' +
+      '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
+      '</div>' +
+      '<div class="modal-body">' +
+      '<table class="table table-hover table-responsive" id="Hey"></table>' +
+      '</div>' +
+      '<div class="modal-footer">' +
+      '<div class="row">' +
+      '<div class="col-md-6 text-center">' +
+      '<button type="button" class="btn btn-default  btn-block" data-dismiss="modal">Close</button>' +
+      '</div>' +
+      '<div class="col-md-6 text-center">' +
+      '<button type="button" class="btn btn-primary btn-block" id="Hi">Checkout</button>' +
+      '</div>' +
+      '</div>' +
+      '</div>' +
+      '</div>' +
+      '</div>' +
+      '</div>'
+    );*/
+     alert("showCheckOutModal");
+    
+  }
   var MyCart = function (target, userOptions) {
     /*
     PRIVATE

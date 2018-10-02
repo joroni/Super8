@@ -126,8 +126,8 @@
             <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
                 <div class="container-fluid">
                     <div class="navbar-wrapper">
-                        <!-- <a href="#" class="navbar-prev"><i class="material-icons" aria-hidden="true">chevron_left</i></a>-->
-                        <a class="navbar-brand" href="#">Customers</a>
+                      <a href="#" class="navbar-prev"><i class="material-icons" aria-hidden="true">chevron_left</i></a>
+                        <h1 class="navbar-brand" href="#">Customers</h1>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -393,7 +393,7 @@
             "data": dataSet,
             "columns": [{
                     "title": "Seq",
-                    "class": "left white",
+                    "class": "left white temphoto",
                     "targets": [1],
                     "visible": true,
                     "searchable": false
@@ -466,7 +466,6 @@
             
             // $('input[name="noise"]').val([rows[6].innerHTML]);
             $('#address').val((rows[7].innerHTML).replace(/(<br>)/g, "\n"));
-
         });
 
         return seq;
@@ -487,7 +486,6 @@
             "fullname": $("#fullname").val(),
             "phone": $("#phone").val(),
             "timestamp": timestamp,
-           
             "noise": $('input[name="noise"]:checked').val(),
             // "noise": $('input[name="noise"]:checked').val(),
             "address": $("#address").val()

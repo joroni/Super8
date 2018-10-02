@@ -1,0 +1,15 @@
+ [{
+    "id": 1,
+    "name": "Coke 1.75ml",
+    "summary": "Coke 1.75ml",
+    "price": 75,
+    "quantity": "4",
+    "image": "cart/images/coke.jpg"
+}, {
+    "id": 2,
+    "name": "Chicken Wings",
+    "summary": "Chicken Wings",
+    "price": 20,
+    "quantity": "3",
+    "image": "cart/images/chickenwings.jpg"
+}]

@@ -814,7 +814,29 @@ div#list {
 
 }
 
+body.menu .btn.btn-menu {
+  padding: 2.5em 1.25rem;
+  font-size: 0.875rem;
+  width: 100%;
+  line-height: 1.5;
+  border-radius: 0.2rem;
+}
 
+body.menu .btn .material-icons, body.menu .btn:not(.btn-just-icon):not(.btn-fab) .fa {
+  position: relative;
+  display: inline-block;
+  top: 0;
+  margin-top: -11em;
+  margin-bottom: -1em;
+  font-size: 1.8rem;
+  vertical-align: middle;
+}
+
+
+.temphoto{
+  background: url(../img/faces/person.jpg) no-repeat  center center !important;
+  background-size: cover;
+}
 /************************************FAB**/
 
 .btn-group-sm .btn-fab{
