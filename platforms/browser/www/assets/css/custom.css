@@ -837,6 +837,24 @@ body.menu .btn .material-icons, body.menu .btn:not(.btn-just-icon):not(.btn-fab)
   background: url(../img/faces/person.jpg) no-repeat  center center !important;
   background-size: cover;
 }
+
+
+.my-cart-discount-price {
+  display: none;
+}
+
+div#selectCustomer {
+  position: absolute;
+  height: 100%;
+  /* overflow: hidden; */
+  min-width: 90%;
+}
+
+
+body.catalog form.search-form {
+  margin-bottom: 1.125rem;
+  margin-left: 0px;
+}
 /************************************FAB**/
 
 .btn-group-sm .btn-fab{

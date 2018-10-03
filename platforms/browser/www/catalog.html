@@ -18,12 +18,13 @@
   <link href="assets/demo/demo.css" rel="stylesheet" />
   <link href="assets/css/custom.css" rel="stylesheet" />
   <link href="assets/css/cartstyle.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/jquery.typeahead.css">
 </head>
 
 <body class="catalog" style="background:#fff;">
   <div class="wrapper ">
     <div class="sidebar" data-color="azure" data-background-color="white" style="background:#dedede;">
-    
+
       <div class="logo">
         <a href="#" class="simple-text logo-normal">
           <img src="assets/img/logo.png" width="100">
@@ -67,12 +68,13 @@
             <a href="welcome.html" class="navbar-prev"> <i class="material-icons" aria-hidden="true">chevron_left</i></a>
             <div class="navbar-brand" href="#">
               <!--<i class="material-icons">notifications</i></a>-->
-              <a class="nav-link my-cart-icon" style="width:50px;" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="material-icons fa-2x">shopping_cart</i>
+              <a class="nav-link my-cart-icon" style="width:50px;" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="material-icons fa-2x">shopping_cart</i>
                 <span class="notification my-cart-badge">0</span>
-               
-            </a>
-           
+
+              </a>
+
             </div>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
@@ -150,30 +152,46 @@
         </div>
       </div>
       <footer class="footer">
-          <div class="container-fluid">
-            <nav class="">
+        <div class="container-fluid">
+          <nav class="">
+            <div class="row">
+              <div class="col-lg-8 col-md-10 ml-auto mr-auto">
                 <div class="row">
-                    <div class="col-lg-8 col-md-10 ml-auto mr-auto">
-                      <div class="row">
-                        <div class="col-md-4">
-                         
+                  <div class="col-md-4 hidden">
+                    <div id="searchCustomer">
+                      <form class="search-form">
+                        <div class="typeahead__container">
+                          <div class="typeahead__field">
+                            <div class="typeahead__query">
+                              <input id="mycustomer" class="js-typeahead" name="mycustomer" type="search" autofocus
+                                autocomplete="off">
+                            </div>
+                            <div class="typeahead__button hidden">
+                              <button type="submit">
+                                <span class="typeahead__search-icon"></span>
+                              </button>
+                            </div>
+                          </div>
                         </div>
-                        <div class="col-md-4">
-                          <button class="btn btn-primary btn-block my-cart-icon">View My Cart<div class="ripple-container"></div></button>
-                          <!--<button class="btn btn-primary btn-blockv my-cart-btn" onclick="demo.showNotification('top','center')">View My Cart<div class="ripple-container"></div></button>-->
-                        </div>
-                        <div class="col-md-4">
-                         
-                        </div>
-                      </div>
+                      </form>
                     </div>
                   </div>
-            </nav>
-            <div class="copyright float-right hidden">
-              © 2018. Super 8. All rights reserved.
+                  <div class="col-md-4">
+                    <button class="btn btn-primary btn-block my-cart-icon">View My Cart<div class="ripple-container"></div></button>
+                    <!--<button class="btn btn-primary btn-blockv my-cart-btn" onclick="demo.showNotification('top','center')">View My Cart<div class="ripple-container"></div></button>-->
+                  </div>
+                  <div class="col-md-4">
+
+                  </div>
+                </div>
+              </div>
             </div>
+          </nav>
+          <div class="copyright float-right hidden">
+            © 2018. Super 8. All rights reserved.
           </div>
-        </footer>
+        </div>
+      </footer>
     </div>
   </div>
   <!--   Core JS Files   -->
@@ -216,7 +234,8 @@
         affixCartIcon: true,
         checkoutCart: function (products) {
           $.each(products, function () {
-            console.log(this);
+            console.log("my cart", this);
+            $("#mycustomer").val();
           });
         },
         clickOnAddToCart: function ($addTocart) {
@@ -237,7 +256,7 @@
       });
 
 
-       $('.my-less-cart-btn').myCart({
+      $('.my-less-cart-btn').myCart({
         classCartIcon: 'my-cart-icon',
         classCartBadge: 'my-cart-badge',
         affixCartIcon: true,
@@ -258,11 +277,16 @@
           return total * 0.5;
         }
       });
+
+      $(".my-cart-icon").click(function () {
+        $("#selectCustomer").append($("#searchCustomer"));
+      })
       /************************* addin catalog script *************************/
       $('#flushCart').click(function () {
         var r = confirm("For Development only. This will flush your cart data. Are you sure?");
         if (r == true) {
           localStorage.removeItem("products");
+          localStorage.removeItem("checkout");
           $(".navbar-toggler ").removeClass("toggled");
           $(".notification.my-cart-badge").html("0");
           $(".qntty").val(0);
@@ -270,7 +294,105 @@
           console.log("Nothing to change");
         }
       })
+    })
+  </script>
+  <script src="assets/css/jquery.typeahead.js"></script>
+  <script>
+    $(document).ready(function () {
+      var data = {
+        customers: ["Victoria Leonard",
+          "Eric Huff",
+          "Anna Yan",
+          "Marc Blue",
+          "Liza Dela Cruz",
+          "Lorelei Collins",
+        ]
+
+      };
+
+      var data =
+        typeof $.typeahead === 'function' && $.typeahead({
+          input: ".js-typeahead",
+          minLength: 1,
+          order: "asc",
+          group: true,
+          maxItemPerGroup: 3,
+          groupOrder: function (node, query, result, resultCount, resultCountPerGroup) {
+
+            var scope = this,
+              sortGroup = [];
+
+            for (var i in result) {
+              sortGroup.push({
+                group: i,
+                length: result[i].length
+              });
+            }
+
+            sortGroup.sort(
+              scope.helper.sort(
+                ["length"],
+                false, // false = desc, the most results on top
+                function (a) {
+                  return a.toString().toUpperCase()
+                }
+              )
+            );
+
+            return $.map(sortGroup, function (val, i) {
+              return val.group
+            });
+          },
+          hint: true,
+          dropdownFilter: "All",
+          //href: "?name={{display}}",
+          //  template: "{{display}}, <small><em>{{group}}</em></small>",
+          template: "{{display}}",
+          emptyTemplate: "no result for {{query}}",
+          source: {
+            customer: {
+              data: data.customers
+            }
+            /*,
+                                    capital: {
+                                        data: data.capitals
+                                    }*/
+          },
+          callback: {
+            onClickAfter: function (node, a, item, event) {
+              event.preventDefault();
+
+              /* var r = confirm("You will be redirected to:\n" + item.href +
+                   "\n\nContinue?");
+               if (r == true) {
+                   window.open(item.href);
+               }
+
+               $('.js-result-container').text('');*/
+
+              /************ custom **********/
+              var thecustomer = $('#mycustomer').val();
+              $('.js-result-container').text(thecustomer);
+            },
+            onResult: function (node, query, obj, objCount) {
+
+              console.log(objCount)
+
+              var text = "";
+              if (query !== "") {
+                text = objCount + ' elements matching "' + query + '"';
+              }
+              $('.js-result-container').text(text);
+
+            }
+          },
+          debug: true
+        });
+
+      $("button.navbar-toggler").click(function () {
+        $("html").toggleClass("nav-open");
       })
+    })
   </script>
 </body>
 
