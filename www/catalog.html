@@ -141,6 +141,8 @@
                 </button>
               </div>
               <br>
+              <input type="hidden" name="hissales" value="Bryan Paculan" id="hissales"/>
+              <input type="hidden" name="imcustomer" value="Raymund Niconi" id="imcustomer"/>
               <button id="Prod2" class="btn my-cart- add-cart" data-id="2" data-name="Chicken Wings" data-summary="Chicken Wings"
                 data-price="20" data-quantity="1" data-image="cart/images/chickenwings.jpg">Add to Cart</button>
               <!--<a href="#" class="btn btn-info">Details</a>-->
@@ -278,8 +280,26 @@
         }
       });
 
-      $(".my-cart-icon").click(function () {
+      $(".my-cart-icon, .my-cart-btn").click(function () {
         $("#selectCustomer").append($("#searchCustomer"));
+        var product =    $("#prodN").html();
+        var quantity =    $("#quantity").html();
+        var total =    $("#total").html();
+        var customer = $("#imcustomer").val();
+        var salesman = $("#hissales").val();
+          
+        var d = new Date();
+        var timestamp = d.getFullYear() + "/" + ("0" + (d.getMonth() + 1)).slice(-2) + "/" + ("0" + (d.getDate())).slice(
+            -2) + " " + ("0" + (d.getHours())).slice(-2) + ":" + ("0" + (d.getMinutes())).slice(-2) + ":" + ("0" +
+            (d.getSeconds())).slice(-2) + "." + ("0" + (d.getMilliseconds())).slice(-2);
+              localStorage.setItem("customer", customer);
+              localStorage.setItem("salesman", salesman);
+              localStorage.setItem("product", product);
+              localStorage.setItem("quantity", quantity);
+              localStorage.setItem("total", total);
+              localStorage.setItem("timestamp", d);
+
+       //alert(customer);
       })
       /************************* addin catalog script *************************/
       $('#flushCart').click(function () {
@@ -298,13 +318,82 @@
   </script>
   <script src="assets/css/jquery.typeahead.js"></script>
   <script>
-    
+    $(document).ready(function () {
+      var mycustomers = [{
+        "userId": "A000001",
+        "fullname": "Bobby Willingham",
+        "phone": "3256602113",
+        "timestamp": "2018/10/03 18:31:48.25",
+        "address": "118 Trainrider Way\nhttp://www.rhinoroofsystems.com/"
+    }, {
+        "userId": "A000002",
+        "fullname": "Barret Russ",
+        "phone": "4344443432",
+        "timestamp": "2018/10/03 18:32:09.85",
+        "address": "3574 Bell Town Rd\nhttp://civilandscapes.com/"
+    }, {
+        "userId": "A000003",
+        "fullname": "Greg Ott",
+        "phone": "0995382910",
+        "timestamp": "2018/10/03 18:36:26.04",
+        "address": "26220 Little Mack"
+    }, {
+        "userId": "A000004",
+        "fullname": "Thomas R. Magraff",
+        "phone": "9088358202",
+        "timestamp": "2018/10/03 18:32:57.82",
+        "address": "421 Penwell Rd"
+    }, {
+        "userId": "A000005",
+        "fullname": "Samuel Hernandez",
+        "phone": "8326448558",
+        "timestamp": "2018/10/03 18:33:19.70",
+        "address": "1770 1St St E\nhttp://www.autopainthouston.com/"
+    },
+    {
+        "userId": "A000006",
+        "fullname": "John Andrus",
+        "phone": "32566021131",
+        "timestamp": "2018/10/03 18:34:04.61",
+        "address": "150 East Montecito Avenue"
+    },
+    {
+        "userId": "A000007",
+        "fullname": "Leo Vollmer",
+        "phone": "0985670654",
+        "timestamp": "2018/10/03 18:34:41.54",
+        "address": "14005 Turners Point Rd"
+    },
+    {
+        "userId": "A000008",
+        "fullname": "Anne Busse-Gandt",
+        "phone": "3867566105",
+        "timestamp": "2018/10/03 18:35:08.61",
+        "address": "204 Cessna Blvd\nhttp://www.sprucecreekproperties.com/"
+    },
+    {
+        "userId": "A000009",
+        "fullname": "Craig Fuelling",
+        "phone": "9547920621",
+        "timestamp": "2018/10/03 18:35:32.85",
+        "address": "2081 SW 37th Terrace\n2081 SW 37th Terrace"
+    },
+    {
+        "userId": "A000010",
+        "fullname": "Doug Stremme",
+        "phone": "6189369130",
+        "timestamp": "2018/10/03 18:36:00.41",
+        "address": "5970 State Route 250\nhttp://stremmesepticservices.com/"
+    }
+]
      // alert(mycustomers);
       var data = {
         customers:
          ["Victoria Leonard",
           "Eric Huff",
           "Anna Yan",
+          "Raymund Niconi",
+          "Teh Opinion",
           "Marc Blue",
           "Liza Dela Cruz",
           "Lorelei Collins",
@@ -312,22 +401,6 @@
 
       };
 
-
-
-$('#states').typeahead({
-  name: 'states',
-  limit: 10,
-  minLength: 1,
-  source: function (query, process) {
-    states = [];
-    map = {};
-    $.each(data, function (i, state) {
-        map[state.stateName] = state;
-        states.push(state.stateName);
-    });
-    process(states);
-  }
-});
       var data =
         typeof $.typeahead === 'function' && $.typeahead({
           input: ".js-typeahead",
@@ -362,31 +435,19 @@ $('#states').typeahead({
             });
           },
           hint: true,
-         // dropdownFilter: "All",
+          dropdownFilter: "All",
           //href: "?name={{display}}",
           //  template: "{{display}}, <small><em>{{group}}</em></small>",
           template: "{{display}}",
           emptyTemplate: "no result for {{query}}",
-          /*source: {
+          source: {
             customer: {
               data: data.customers
             }
             /*,
                                     capital: {
                                         data: data.capitals
-                                    }*
-          },*/
-
-
-
-          source: function (query, process) {
-            customers = [];
-            map = {};
-            $.each(data, function (i, customer) {
-                map[customer.name] = customer;
-                customers.push(customer.name);
-            });
-            process(customers);
+                                    }*/
           },
           callback: {
             onClickAfter: function (node, a, item, event) {

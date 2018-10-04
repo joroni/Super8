@@ -126,39 +126,52 @@
             </nav>
             <!-- End Navbar -->
             <div class="content checkout">
-                <div id="formApp"> 
-                    <input id='customerName' type='text' class="form-control" disabled placeholder="Customer" />
-                    <input id='salesman' type='text' class="form-control" disabled placeholder="Sales Man" />
-                    <input id='timestamp' class="form-control" disabled type='text' placeholder="Time" />
-                    <input id='prodID' type='text' class="form-control" disabled placeholder="Prod ID" />
-                    <input id='prodName' type='text' class="form-control" disabled placeholder="Prod Name" />
-                    <!--  <input id='prodUPrice' type='number' placeholder="Prod Unit Price" />-->
-                    <input id='prodQuantity' type='number' class="form-control" disabled placeholder="Prod Quantity" />
-                    <!-- <input id='prodSubTotal' type='number' placeholder="Prod Sub Total" />-->
-                    <input id='grandTotal' class="form-control" disabled type='text' placeholder="Total" />
+              
+                       
+                                  <div class="row">
+                                    <div class="col-md-8">
+                                      <div class="card">
+                                        <div class="card-header card-header-primary">
+                                          <h4 class="card-title">Edit Profile</h4>
+                                          <p class="card-category">Complete your profile</p>
+                                        </div>
+                                        <div class="card-body">
+                                                <div id="formApp">
+                       
+                                                        <input id='customerName' type='text' class="form-control" disabled placeholder="Customer" />
+                                                        <input id='saleMan' type='text' class="form-control" disabled placeholder="SalesMan" />
+                                                        <input id='grantimestampsdTotal' class="form-control" disabled type='text' placeholder="Time" />
+                                                        <input id='prodID' type='text' class="form-control" disabled placeholder="Prod ID" />
+                                                        <input id='prodName' type='text' class="form-control" disabled placeholder="Prod Name" />
+                                                      <!--  <input id='prodUPrice' type='number' placeholder="Prod Unit Price" />-->
+                                                        <input id='prodQuantity' type='number' class="form-control" disabled placeholder="Prod Quantity" />
+                                                       <!-- <input id='prodSubTotal' type='number' placeholder="Prod Sub Total" />-->
+                                                        <input id='grandTotal' class="form-control" disabled type='text' placeholder="Total" />
+                                                    </div>
+                                                    <ul id="listparent" class="js-result-container list-group"></ul>
+                                
+                                        </div>
+                                    
+                                 
+                                  </div>
+                                </div>
+                              </div>
+                   
+
+
+                    <footer class="footer">
+                        <div class="container-fluid">
+
+                            <div class="btn-group">
+
+                                <button class="btn btn-primary" onclick="pushIt()">Save</button>
+
+                                <button class="btn" onclick="popIt()">Sync</button>
+                            </div>
+                        </div>
+                    </footer>
                 </div>
-                <ul id="listparent" class="js-result-container list-group"></ul>
             </div>
-
-
-
-
-
-
-
-            <footer class="footer">
-                <div class="container-fluid">
-
-                    <div class="btn-group">
-
-                        <button class="btn btn-primary" onclick="pushIt()">Save</button>
-
-                        <button class="btn" onclick="popIt()">Sync</button>
-                    </div>
-                </div>
-            </footer>
-        </div>
-    </div>
 </body>
 <script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
 <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
@@ -175,52 +188,32 @@
 <script src="assets/demo/demo.js"></script>
 <script>
     $(document).ready(function () {
-        var timestamp = 1301090400,
-            date = new Date(timestamp * 1000),
-            datevalues = [
-                date.getFullYear(),
-                date.getMonth() + 1,
-                date.getDate(),
-                date.getHours(),
-                date.getMinutes(),
-                date.getSeconds(),
-            ];
-        //alert(datevalues); //=> [2011, 3, 25, 23, 0, 0]
-
-        var mycustomer = localStorage.getItem("customer");
-        var myproducts = localStorage.getItem("product");
-        var myquantity = localStorage.getItem("quantity");
-        var mytotal = localStorage.getItem("total");
-        var salesman = localStorage.getItem("salesman");
-        var timestamp = datevalues;
-        $("#prodName").val(myproducts);
-        $("#prodQuantity").val(myquantity);
-        $("#grandTotal").val(mytotal);
-        $("#customerName").val(mycustomer);
-        $("#timestamp").val(timestamp);
-        $("#salesman").val(salesman);
+        outputIt();
+        
+                            var mycustomer= localStorage.setItem("customer", customer);
+                            var myproducts = localStorage.setItem("product", product);
+                            var myquantity = localStorage.setItem("quantity", quantity);
+                            var mytotal = localStorage.setItem("total", total);
+                            var mytimestamp = localStorage.setItem("timestamp", timestamp);
+                             $("#prodName").val(myproducts);
+                             $("#prodQuantity").val(myquantity);
+                             $("#grandTotal").val(mytotal);
+                             $("#customerName").val(mycustomer);
+                             $("#timestamps").val(mytimestamp);
+                      
+        //fetchIt();
     })
-    var transactions = {
-        queue: [
 
-            /*  {id: 0, name:"Banana"},
-              {id: 1, name:"Orange"},
-              {id: 2, name:"Apple"},
-              {id: 3, name:"Mango"}*/
-        ]
-    };
-
-    localStorage.setItem('transactions', JSON.stringify(transactions));
-
-    outputIt();
 
 
     function outputIt() {
-        $("#formApp").toggleClass("hidden");
-        $("#listparent").show();
+        $("#formApp").hide();
+        //var po = JSON.parse(localStorage.getItem('total'));
         var data = JSON.parse(localStorage.getItem('transactions'));
-        var outputs = "";
+        var outputs ="";
+
         for (var i = 0; i < data.queue.length; i++) {
+            // outputs += '<div id="' + data.queue[i].id + '">' + data.queue[i].id + ':' + data.queue[i].name + '</div>';
             outputs += '<li class="list-group-item">' +
                 '<div class="media">' +
                 '<a class="media-left" href="customer-page.html">' +
@@ -245,6 +238,7 @@
     }
 
     function popIt() {
+        $("#formApp").show();
         var data = JSON.parse(localStorage.getItem('transactions'));
         data.queue.shift();
         localStorage.setItem('transactions', JSON.stringify(data));
@@ -252,16 +246,22 @@
     }
 
     function pushIt() {
-        $("#formApp").toggleClass("hidden");
-        $("#listparent").show();
         var data = JSON.parse(localStorage.getItem('transactions'));
-
+        $("#formApp").show();
         data.queue.push({
-            id: Math.floor(Math.random() * (100 - 1 + 1)) + 1,
-            name: $('input').val()
+            id: Math.floor(Math.random() * (10000 - 1 + 1)) + 1,
+            customer: $('#customerName').val(),
+            salesman: $('#saleMan').val(),
+            prodid: $('#prodID').val(),
+            prodname: $('#prodName').val(),
+            prodprice: $('#prodUPrice').val(),
+            prodquantity: $('#prodQuantity').val(),
+            prodstotal: $('#prodSubTotal').val(),
+            prodtotal: $('#grandTotal').val(),
+
         });
         localStorage.setItem('transactions', JSON.stringify(data));
-        outputIt();
+
     }
 </script>
 

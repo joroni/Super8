@@ -212,15 +212,16 @@
         $cartTable.append(
           '<tr title="' + this.summary + '" data-id="' + this.id + '" data-price="' + this.price + '">' +
           //'<td class="text-center" style="width: 30px;"><img width="30px" height="30px" src="cart/' + this.image + '"/></td>' +
-          '<td>' + this.name + '</td>' +
-          '<td title="Unit Price">₱' + this.price + '</td>' +
-          '<td title="Quantity" style=" padding:10px 0 10px 0 !important;"><input type="number" min="1" style="width: 40px; text-align:center; border:1px solid #ddd;" class="' + classProductQuantity + '" value="' + this.quantity + '"/></td>' +
-          '<td title="Total" data-total="' + total + '" class="' + classProductTotal + '">₱' + total + '</td>' +
+          '<td id="prodN">' + this.name + '</td>' +
+          '<td id=unitprice" title="Unit Price">₱' + this.price + '</td>' +
+          '<td id="quantity" title="Quantity" style=" padding:10px 0 10px 0 !important;"><input type="number" min="1" style="width: 40px; text-align:center; border:1px solid #ddd;" class="' + classProductQuantity + '" value="' + this.quantity + '"/></td>' +
+          '<td id="subtotal" title="Total" data-total="' + total + '" class="' + classProductTotal + '">₱' + total + '</td>' +
           '<td title="Remove from Cart" class="text-center" style="width: 30px;">' +
           '<button type="button" rel="tooltip" title="" class="btn btn-danger btn-link btn-sm ' + classProductRemove + ' " data-original-title="Remove">' +
           '<i class="material-icons">close</i></button>' +
           //'<a href="javascript:void(0);" style="padding-left:15px; padding-right:15px;" class="btn btn-xs btn-danger ' + classProductRemove + '">&times;</a></td>' +
-          '</tr>'
+          '</tr>'+
+          '<tr><td class="hidden" id="total">'+total+'</td></tr>'
         );
       });
 
