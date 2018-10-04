@@ -21,6 +21,8 @@ div#formApp {
   background: #fff;
   width: 85%;
   text-align: center;
+  z-index: 999;
+  bottom: 87px;
 }
 /*
 .navbar-toggler {

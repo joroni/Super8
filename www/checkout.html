@@ -126,7 +126,8 @@
             </nav>
             <!-- End Navbar -->
             <div class="content checkout">
-                <div id="formApp"> 
+                <div id="formApp">
+                    <a href="#" id="closeBtn">CLOSE</a>
                     <input id='customerName' type='text' class="form-control" disabled placeholder="Customer" />
                     <input id='salesman' type='text' class="form-control" disabled placeholder="Sales Man" />
                     <input id='timestamp' class="form-control" disabled type='text' placeholder="Time" />
@@ -186,20 +187,24 @@
                 date.getSeconds(),
             ];
         //alert(datevalues); //=> [2011, 3, 25, 23, 0, 0]
-
         var mycustomer = localStorage.getItem("customer");
         var myproducts = localStorage.getItem("product");
         var myquantity = localStorage.getItem("quantity");
         var mytotal = localStorage.getItem("total");
-        var salesman = localStorage.getItem("salesman");
-        var timestamp = datevalues;
+        var mysalesman = localStorage.getItem("salesman");
+        var mytimestamp = datevalues;
         $("#prodName").val(myproducts);
         $("#prodQuantity").val(myquantity);
         $("#grandTotal").val(mytotal);
         $("#customerName").val(mycustomer);
-        $("#timestamp").val(timestamp);
-        $("#salesman").val(salesman);
+        $("#timestamp").val(mytimestamp);
+        $("#salesman").val(mysalesman);
+
+      
     })
+
+
+      
     var transactions = {
         queue: [
 
@@ -210,13 +215,19 @@
         ]
     };
 
-    localStorage.setItem('transactions', JSON.stringify(transactions));
+    //localStorage.setItem('transactions', JSON.stringify(transactions));
 
     outputIt();
 
+    $("#closeBtn").click(function () {
+
+        $(this).addClass("hidden");
+        $("#formApp").addClass("hidden");
+       // pushIt();
+    })
 
     function outputIt() {
-        $("#formApp").toggleClass("hidden");
+
         $("#listparent").show();
         var data = JSON.parse(localStorage.getItem('transactions'));
         var outputs = "";
@@ -231,7 +242,7 @@
                 '</a>' +
                 '<div class="media-body">' +
                 '<h4 class="media-heading">' + data.queue[i].customer + '</h4>' +
-                '<small style="color:#c0c1c2;">TOtal Amount: ₱ ' + data.queue[i].prodtotal + '</small>' +
+                '<small style="color:#c0c1c2;">Total Amount: ₱ ' + data.queue[i].total + '</small>' +
                 ' </div>' +
                 '<div class="media-right"><a href="customer-page.html" data-id="' + data.queue[i].id + '" data-name="' +
                 data.queue[i].customer + '' + 'data-summary="Coke 1.75ml"' +
@@ -252,13 +263,22 @@
     }
 
     function pushIt() {
-        $("#formApp").toggleClass("hidden");
+
         $("#listparent").show();
+       
+        $("#formApp").hide();
+        localStorage.removeItem('products');
         var data = JSON.parse(localStorage.getItem('transactions'));
 
         data.queue.push({
             id: Math.floor(Math.random() * (100 - 1 + 1)) + 1,
-            name: $('input').val()
+            customer: $("#customerName").val(),
+            product: $("#prodName").val(),
+            quantity: $("#prodQuantity").val(),
+            total: $("#grandTotal").val(),
+            timestamp: $("#timestamp").val(),
+            salesman: $("#salesman").val()
+
         });
         localStorage.setItem('transactions', JSON.stringify(data));
         outputIt();
