@@ -159,7 +159,7 @@
                 <div class="row">
                   <div class="col-md-4 hidden">
                     <div id="searchCustomer">
-                      <form class="search-form">
+                      --<form class="search-form">
                         <div class="typeahead__container">
                           <div class="typeahead__field">
                             <div class="typeahead__query">
@@ -298,9 +298,11 @@
   </script>
   <script src="assets/css/jquery.typeahead.js"></script>
   <script>
-    $(document).ready(function () {
+    
+     // alert(mycustomers);
       var data = {
-        customers: ["Victoria Leonard",
+        customers:
+         ["Victoria Leonard",
           "Eric Huff",
           "Anna Yan",
           "Marc Blue",
@@ -310,6 +312,22 @@
 
       };
 
+
+
+$('#states').typeahead({
+  name: 'states',
+  limit: 10,
+  minLength: 1,
+  source: function (query, process) {
+    states = [];
+    map = {};
+    $.each(data, function (i, state) {
+        map[state.stateName] = state;
+        states.push(state.stateName);
+    });
+    process(states);
+  }
+});
       var data =
         typeof $.typeahead === 'function' && $.typeahead({
           input: ".js-typeahead",
@@ -344,19 +362,31 @@
             });
           },
           hint: true,
-          dropdownFilter: "All",
+         // dropdownFilter: "All",
           //href: "?name={{display}}",
           //  template: "{{display}}, <small><em>{{group}}</em></small>",
           template: "{{display}}",
           emptyTemplate: "no result for {{query}}",
-          source: {
+          /*source: {
             customer: {
               data: data.customers
             }
             /*,
                                     capital: {
                                         data: data.capitals
-                                    }*/
+                                    }*
+          },*/
+
+
+
+          source: function (query, process) {
+            customers = [];
+            map = {};
+            $.each(data, function (i, customer) {
+                map[customer.name] = customer;
+                customers.push(customer.name);
+            });
+            process(customers);
           },
           callback: {
             onClickAfter: function (node, a, item, event) {

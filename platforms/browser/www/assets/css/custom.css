@@ -855,6 +855,25 @@ body.catalog form.search-form {
   margin-bottom: 1.125rem;
   margin-left: 0px;
 }
+
+
+#my-cart-table.table th, #my-cart-table.table td {
+  padding: 0.75rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+
+.mdl-data-table td {
+  border-top: 1px solid rgba(0,0,0,.12);
+  border-bottom: 1px solid rgba(0,0,0,.12);
+  padding-top: 12px;
+  line-height: 4em;
+  font-size: 1.1em;
+  min-height: 100px;
+  color: #333;
+  vertical-align: middle;
+}
 /************************************FAB**/
 
 .btn-group-sm .btn-fab{

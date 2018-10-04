@@ -24,12 +24,28 @@
 
     <link href="assets/css/custom.css" rel="stylesheet" />
     <style>
-        label {
+        div#table_length {
+    display: none;
+}
+     /*   label {
              display:none;
-             }
+             }*/
              #seq {
               display: none;   
              }
+
+             #table_filter {
+                 text-align: left;
+             }
+
+             #table_filter input {
+                 border: 1px solid #ddd;
+                 height: 30px;
+                 width: 80%;
+             }
+             #table_filter  label {
+                 min-width: 100%;
+                }
              .mdl-data-table {
                 position: relative;
                 border: 0px solid rgba(0,0,0,.12);
@@ -136,7 +152,8 @@
                         <span class="navbar-toggler-icon icon-bar"></span>
                         <span class="navbar-toggler-icon icon-bar"></span>
                     </button>
-                    <!-- <div class="collapse navbar-collapse justify-content-end hidden">
+                    <div class="collapse navbar-collapse justify-content-end">
+                        Hi
                         <form class="navbar-form">
                             <div class="input-group no-border">
                                 <input type="text" value="" class="form-control" placeholder="Search...">
@@ -173,7 +190,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </div>-->
+                    </div>
                 </div>
             </nav>
             <!-- End Navbar -->
@@ -186,7 +203,8 @@
 
                             <div class="card-body">
                                 <div id="list">
-                                    <table id="table" class="mdl-data-table display responsive nowrap" style="width:100%"></table>
+                                    <table id="table" class="customer-table mdl-data-table display responsive nowrap"
+                                        style="width:100%"></table>
 
 
                                     <div id="" class="form-group">
@@ -253,8 +271,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                       
-                                      
+
+
                                         <div class="col-md-8">
                                             <div class="form-group">
                                                 <label for="phone" class="col-sm-2 control-label">Phone</label>
@@ -264,31 +282,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!--   <div class="col-md-8">
-          <div class="form-group">
-                                 <span class="bmd-form-group is-filled">
-                                    <div class="radio">
-                                       <label>
-                                          <input type="noise"  name="optionsRadios" id="noise" value="noNoise" checked="">
-                                          <span class="bmd-radio">
-                                             <div class="ripple-container"></div>
-                                          </span>
-                                          Option one is this and that—be sure to include why it's great
-                                       </label>
-                                    </div>
-                                 </span>
-                                 <label for="noise" class="col-sm-12 control-label">Noise</label>
-                                 <div class="col-sm-12">
-                                    <div class="radio">
-                                       <label>
-                                       <input type="radio"  name="noise"
-                                          value="noisy">
-                                       Noisy
-                                       </label>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>-->
+
                                         <div class="col-md-8">
                                             <div class="form-group">
                                                 <label for="address" class="col-sm-2 control-label">Address</label>
@@ -357,6 +351,7 @@
 <script language="JavaScript" type="text/javascript" src="localstorage/js/jquery.validationEngine-2.6.2.js"></script>
 <script language="JavaScript" type="text/javascript" src="localstorage/js/jquery.validationEngine-en.js"></script>
 <script language="JavaScript" type="text/javascript" src="localstorage/js/jquery.dataTables-1.10.0.min.js"></script>
+<script src="assets/js/core/appscript.js"></script>
 <script>
     $("#main").click(function () {
         $("#mini-fab").toggleClass('hidden');
@@ -364,78 +359,13 @@
 
     $(document).ready(function () {
         $('[data-toggle="tooltip"]').tooltip();
+        searchObject();
     });
     // $.material.init();
     var editor; // use a global for the submit and return data rendering in the examples
     var formId = "customer";
     var oTable;
-    var customer = [{
-            "userId": "A000001",
-            "fullname": "Bobby Willingham",
-            "phone": "3256602113",
-            "timestamp": "2018/10/03 18:31:48.25",
-            "address": "118 Trainrider Way\nhttp://www.rhinoroofsystems.com/"
-        }, {
-            "userId": "A000002",
-            "fullname": "Barret Russ",
-            "phone": "4344443432",
-            "timestamp": "2018/10/03 18:32:09.85",
-            "address": "3574 Bell Town Rd\nhttp://civilandscapes.com/"
-        }, {
-            "userId": "A000003",
-            "fullname": "Greg Ott",
-            "phone": "0995382910",
-            "timestamp": "2018/10/03 18:36:26.04",
-            "address": "26220 Little Mack"
-        }, {
-            "userId": "A000004",
-            "fullname": "Thomas R. Magraff",
-            "phone": "9088358202",
-            "timestamp": "2018/10/03 18:32:57.82",
-            "address": "421 Penwell Rd"
-        }, {
-            "userId": "A000005",
-            "fullname": "Samuel Hernandez",
-            "phone": "8326448558",
-            "timestamp": "2018/10/03 18:33:19.70",
-            "address": "1770 1St St E\nhttp://www.autopainthouston.com/"
-        },
-        {
-            "userId": "A000006",
-            "fullname": "John Andrus",
-            "phone": "32566021131",
-            "timestamp": "2018/10/03 18:34:04.61",
-            "address": "150 East Montecito Avenue"
-        },
-        {
-            "userId": "A000007",
-            "fullname": "Leo Vollmer",
-            "phone": "0985670654",
-            "timestamp": "2018/10/03 18:34:41.54",
-            "address": "14005 Turners Point Rd"
-        },
-        {
-            "userId": "A000008",
-            "fullname": "Anne Busse-Gandt",
-            "phone": "3867566105",
-            "timestamp": "2018/10/03 18:35:08.61",
-            "address": "204 Cessna Blvd\nhttp://www.sprucecreekproperties.com/"
-        },
-        {
-            "userId": "A000009",
-            "fullname": "Craig Fuelling",
-            "phone": "9547920621",
-            "timestamp": "2018/10/03 18:35:32.85",
-            "address": "2081 SW 37th Terrace\n2081 SW 37th Terrace"
-        },
-        {
-            "userId": "A000010",
-            "fullname": "Doug Stremme",
-            "phone": "6189369130",
-            "timestamp": "2018/10/03 18:36:00.41",
-            "address": "5970 State Route 250\nhttp://stremmesepticservices.com/"
-        }
-    ]
+
     $(document).ready(function () {
         $('#formID').hide();
         var seq = createTable();
@@ -474,6 +404,7 @@
             var object = null;
             object = JSON.parse(json);
             console.log(object);
+            localStorage.setItem("myCustomers", JSON.stringify(object));
             var address = object.address;
             address = address.replace(/\n/g, "<br>");
             //  dataSet[seq] = [index, icons, object.userId, object.timestamp, object.fullname, object.phone, object.noise,
@@ -528,6 +459,17 @@
             ]
         });
 
+
+
+
+        /*
+        $("#table.customer-table").
+
+        $("#table tr").each(function(){
+             $(this).find(".dataCol:gt(4)").css("display","none");
+             });
+
+             */
         $('#table tbody').on('click', '.btn-delete', function () {
             var row = $(this).parents('tr');
             var seq = row.children()[0].innerHTML;
@@ -555,14 +497,14 @@
             $('#list').hide();
             var rows = $(this).parents('tr').children();
             $('#seq').text(rows[0].innerHTML);
-           
+
             $('#fullname').val(rows[2].innerHTML);
             $('#phone').val(rows[3].innerHTML);
             $('#userID').val(rows[4].innerHTML);
-           
+
             // $('input[name="noise"]').val([rows[6].innerHTML]);
             $('#address').val((rows[6].innerHTML).replace(/(<br>)/g, "\n"));
-            console.log(rows);
+
         });
 
         return seq;
@@ -578,6 +520,7 @@
             seq = 0;
         }
         var key = formId + "_" + seq;
+
         var object = {
             "userId": $("#userID").val(),
             "fullname": $("#fullname").val(),
@@ -587,7 +530,10 @@
             // "noise": $('input[name="noise"]:checked').val(),
             "address": $("#address").val()
         }
+
+
         localStorage.setItem(key, JSON.stringify(object));
+
         location.reload(true);
         // alert("Saved!")
         // demo.showNotification('top','center');
@@ -620,6 +566,17 @@
         }
     };
 
+    function searchObject() {
+        var totale = "";
+        $("#table.customer-table tr td:nth-child(2)").each(
+            function () {
+                totale += $(this).html();
+                // totale += $(this.text());
+            }
+
+        );
+        //  alert(totale);
+    }
 
     function verifyLocalStorageCapability() {
         if (!window.localStorage) {

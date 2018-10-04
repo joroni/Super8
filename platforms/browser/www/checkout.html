@@ -21,74 +21,110 @@
     <link href="assets/demo/demo.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/jquery.typeahead.css">
 
-    <body>
-            <p>Click the 'Push' button to add the value to the array.</p>
-            <p>Click the 'Pop' button to remove the first element of the array.</p>
-            <input id='input' type='text' placeholder="Type Value" />
-            <button onclick="pushIt()">Push</button>
-        
-            <button onclick="popIt()">Pop</button>
-            <ul id="listparent" class="js-result-container list-group"></ul>
-        </body>
-        <script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
-        <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
-        <script src="assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
-        <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-        <script>
-           
-          var checkoutitems = localStorage.getItem('checkout');
-         // alert(checkoutitems);
-            var transactions = {
-                queue: JSON.parse(checkoutitems)
-            };
-        
-            localStorage.setItem('transactions', JSON.stringify(transactions));
-        
-            outputIt();
-        
-            function outputIt() {
-                var po = JSON.parse(localStorage.getItem('total'));
-                var data = JSON.parse(localStorage.getItem('transactions'));
-                var outputs = "";
-                for (var i = 0; i < data.queue.length; i++) {
-                   // outputs += '<div id="' + data.queue[i].id + '">' + data.queue[i].id + ':' + data.queue[i].name + '</div>';
-                    outputs += '<li class="list-group-item">' +
-                        '<div class="media">' +
-                        '<a class="media-left" href="customer-page.html">' +
-                        '<div style="width: 40px; height: 40px">' +
-                        '<img class="rounded-img" style="width:100%; height:auto;"  src="assets/img/faces/' + this.photo + '" alt="...">' +
-                        '</div>' +
-                        '</a>' +
-                        '<div class="media-body">' +
-                        '<h4 class="media-heading">' + data.queue[i].name +  '</h4>' +
-                        '<small style="color:#c0c1c2;">last ordered:' + po + '</small>' +
-                        ' </div>' +
-                        '<div class="media-right"><a href="customer-page.html" data-id="' + data.queue[i].id +'" data-name="'+ data.queue[i].name +''+'data-summary="Coke 1.75ml"'+
-                        'data-price="75" data-quantity="1" data-image="assets/img/faces/' +  data.queue[i].image + '"><i class="material-icons" aria-hidden="true">chevron_right</i></a></div>' +
-                        ' </div>' +
-                        ' </li>';
-                  
-                }
-                document.getElementById("listparent").innerHTML = outputs;
-            }
-        
-            function popIt() {
-                var data = JSON.parse(localStorage.getItem('transactions'));
-                data.queue.shift();
-                localStorage.setItem('transactions', JSON.stringify(data));
-                outputIt();
-            }
-        
-            function pushIt() {
-                var data = JSON.parse(localStorage.getItem('transactions'));
-        
-                data.queue.push({
-                    id: Math.floor(Math.random() * (100 - 1 + 1)) + 1,
-                    name: $('input').val()
-                });
-                localStorage.setItem('transactions', JSON.stringify(data));
-                outputIt();
-            }
-        </script>
-        
-        </html>
+<body>
+    <div id="hiddenForm"></div>
+   
+    <input id='customerName' type='text' placeholder="Customer" />
+    <input id='saleMan' type='text' placeholder="SalesMan" />
+    <input id='prodID' type='text' placeholder="Prod ID" />
+    <input id='prodName' type='text' placeholder="Prod Name" />
+    <input id='prodUPrice' type='number' placeholder="Prod Unit Price" />
+    <input id='prodQuantity' type='number' placeholder="Prod Quantity" />
+    <input id='prodSubTotal' type='number' placeholder="Prod Sub Total" />
+    <input id='grandTotal' type='text' placeholder="Total" />
+   
+
+ 
+    <button onclick="pushIt()">Push</button>
+
+    <button onclick="popIt()">Pop</button>
+    <ul id="listparent" class="js-result-container list-group"></ul>
+</body>
+<script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
+<script src="assets/js/core/popper.min.js" type="text/javascript"></script>
+<script src="assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
+<script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+
+    fetchIt();
+})   
+ 
+ 
+    function fetchIt() {
+        var data = JSON.stringify(localStorage.getItem('checkout'));
+        var outputsA = "";
+        for (var i = 0; i < data.queue.length; i++) {
+            outputsA += //'<div id="' + data.queue[i].id + '">' + data.queue[i].id + ':' + data.queue[i].name + '</div>';
+            '<input id="customerName" type="text" placeholder="Customer" value="'+data.queue[i].customer+'" />'+
+                '<input id="saleMan" type="text" placeholder="SalesMan"  value="'+data.queue[i].salesman+'"/>'+
+                '<input id="prodID" type="text" placeholder="Prod ID"  value="'+data.queue[i].id+'"/>'+
+                '<input id="prodName" type="text" placeholder="Prod Name"  value="'+data.queue[i].name+'"/>'+
+                '<input id="prodUPrice" type="number" placeholder="Prod Unit Price"  value="'+data.queue[i].price+'" />'+
+                '<input id="prodQuantity" type="number" placeholder="Prod Quantity"  value="'+data.queue[i].quantity+'" />'+
+                '<input id="prodSubTotal" type="number" placeholder="Prod Sub Total"  value="'+data.queue[i].total+'"/>'+
+                '<input id="grandTotal" type="text" placeholder="Total"  value="'+data.queue[i].id+'"/>'
+        }
+        document.getElementById("hiddenForm").innerHTML = outputsA;
+    }
+
+    function outputIt() {
+        var po = JSON.parse(localStorage.getItem('total'));
+        var data = JSON.parse(localStorage.getItem('transactions'));
+        var outputs = "";
+        for (var i = 0; i < data.queue.length; i++) {
+            // outputs += '<div id="' + data.queue[i].id + '">' + data.queue[i].id + ':' + data.queue[i].name + '</div>';
+            outputs += '<li class="list-group-item">' +
+                '<div class="media">' +
+                '<a class="media-left" href="customer-page.html">' +
+                '<div style="width: 40px; height: 40px">' +
+                '<img class="rounded-img" style="width:100%; height:auto;"  src="assets/img/faces/' + this.photo +
+                '" alt="...">' +
+                '</div>' +
+                '</a>' +
+                '<div class="media-body">' +
+                '<h4 class="media-heading">' + data.queue[i].customer + '</h4>' +
+                '<small style="color:#c0c1c2;">TOtal Amount: ₱ ' + data.queue[i].prodtotal + '</small>' +
+                ' </div>' +
+                '<div class="media-right"><a href="customer-page.html" data-id="' + data.queue[i].id + '" data-name="' +
+                data.queue[i].customer + '' + 'data-summary="Coke 1.75ml"' +
+                'data-price="75" data-quantity="1" data-image="assets/img/faces/' + data.queue[i].image +
+                '"><i class="material-icons" aria-hidden="true">chevron_right</i></a></div>' +
+                ' </div>' +
+                ' </li>';
+
+        }
+        document.getElementById("listparent").innerHTML = outputs;
+    }
+
+    function popIt() {
+        var data = JSON.parse(localStorage.getItem('transactions'));
+        data.queue.shift();
+        localStorage.setItem('transactions', JSON.stringify(data));
+        outputIt();
+    }
+
+    function pushIt() {
+        var data = JSON.parse(localStorage.getItem('transactions'));
+
+        data.queue.push({
+            id: Math.floor(Math.random() * (10000 - 1 + 1)) + 1,
+            customer: $('#customerName').val(),
+            salesman: $('#saleMan').val(),
+            prodid: $('#prodID').val(),
+            prodname: $('#prodName').val(),
+            prodprice: $('#prodUPrice').val(),
+            prodquantity: $('#prodQuantity').val(),
+            prodstotal: $('#prodSubTotal').val(),
+            prodtotal: $('#grandTotal').val(),
+            
+
+
+
+        });
+        localStorage.setItem('transactions', JSON.stringify(data));
+        outputIt();
+    }
+</script>
+
+</html>  

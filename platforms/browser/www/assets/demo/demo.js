@@ -1,3 +1,16 @@
+
+$(".navbar-prev").click(function(){
+  window.history.back();
+})
+
+
+
+
+/*
+
+*/
+
+
 demo = {
   initDocumentationCharts: function() {
     if ($('#dailySalesChart').length != 0 && $('#websiteViewsChart').length != 0) {
@@ -254,3 +267,5 @@ demo = {
   }
 
 }
+
+
